@@ -25,7 +25,7 @@
 <meta property="og:url" content="http://haibarazryblog.xyz/index.html">
 <meta property="og:site_name" content="D1antang 的博客">
 <meta property="og:locale" content="en_US">
-<meta property="article:author" content="John Doe">
+<meta property="article:author" content="D1antang">
 <meta name="twitter:card" content="summary">
 
 
@@ -109,14 +109,14 @@
 
         <div class="site-overview-wrap sidebar-panel">
           <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">John Doe</p>
+  <p class="site-author-name" itemprop="name">D1antang</p>
   <div class="site-description" itemprop="description"></div>
 </div>
 <div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -159,11 +159,134 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://haibarazryblog.xyz/2022/03/28/code-test/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="D1antang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="D1antang 的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/03/28/code-test/" class="post-title-link" itemprop="url">code_test</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-03-28 14:51:33 / Modified: 14:53:29" itemprop="dateCreated datePublished" datetime="2022-03-28T14:51:33+08:00">2022-03-28</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p>读入一个n*n的字符矩阵, 绕矩阵中心顺时针旋转90度并输出结果.</p>
+<p>Standard Input</p>
+<p>有多组测试数据。第一行是整数T (T &lt;= 100)，表示测试数据的组数，随后有T组测试数据。每一组测试数据的第一行是正号数n, 随后是一个n*n的全由小写英文字符构成的字符矩阵, n &lt; 100.</p>
+<p>Standard Output</p>
+<p>对应每组输入，输出绕矩阵中心顺时针旋转的字符矩阵, 每组给出完成后, 再输出一个空行</p>
+</blockquote>
+<p><code>#include &lt;stdio.h&gt;</code></p>
+<p><code>int main()</code></p>
+<p><code>&#123;</code></p>
+<p><code>int T;</code></p>
+<p><code>scanf(&quot;%d&quot;, &amp;T);</code></p>
+<p><code>while (T--)</code></p>
+<p><code>&#123;</code></p>
+<p>​    <code>int n;</code></p>
+<p>​    <code>scanf(&quot;%d&quot;, &amp;n);</code></p>
+<p>​    <code>int i, j;</code></p>
+<p>​    <code>char matrix[150][150];</code></p>
+<p>​    <code>for (i = 0; i &lt; n; i++)</code></p>
+<p>​    <code>&#123;</code></p>
+<p>​      <code>int flag = 1;</code></p>
+<p>​      <code>if (flag)</code></p>
+<p>​      <code>&#123;</code></p>
+<p>​        <code>flag = !flag;</code></p>
+<p>​        <code>char ch = getchar();</code></p>
+<p>​      <code>&#125;</code></p>
+<p>​      <code>for (j = 0; j &lt; n; j++)</code></p>
+<p>​      <code>&#123;</code></p>
+<p>​        <code>if (flag)</code></p>
+<p>​        <code>&#123;</code></p>
+<p>​          <code>flag = !flag;</code></p>
+<p>​          <code>char ch = getchar();</code></p>
+<p>​        <code>&#125;</code></p>
+<p>​        <code>matrix[i][j] = getchar();</code></p>
+<p>​      <code>&#125;</code></p>
+<p>​    <code>&#125;</code></p>
+<p>​    <code>for (i = 0; i &lt; n / 2; i++)</code></p>
+<p>​    <code>&#123;</code></p>
+<p>​      <code>for (j = i; j &lt; n - 1 - i; j++)</code></p>
+<p>​      <code>&#123;</code></p>
+<p>​        <code>int temp = matrix[i][j];</code></p>
+<p>​        <code>matrix[i][j] = matrix[n - 1 - j][i];</code></p>
+<p>​        <code>matrix[n - 1 - j][i] = matrix[n - 1 - i][n - 1 - j];</code></p>
+<p>​        <code>matrix[n - 1 - i][n - 1 - j] = matrix[j][n - 1 - i];</code></p>
+<p>​        <code>matrix[j][n - 1 - i] = temp;</code></p>
+<p>​      <code>&#125;</code></p>
+<p>​    <code>&#125;</code></p>
+<p>​      <code>for (i = 0; i &lt; n; i++)</code></p>
+<p>​      <code>&#123;</code></p>
+<p>​        <code>for (j = 0; j &lt; n; j++)</code></p>
+<p>​        <code>&#123;</code></p>
+<p>​          <code>printf(&quot;%c&quot;, matrix[i][j]);</code></p>
+<p>​        <code>&#125;</code></p>
+<p>​        <code>printf(&quot;\n&quot;);</code></p>
+<p>​      <code>&#125;</code></p>
+<p>​    <code>printf(&quot;\n&quot;);</code></p>
+<p>​    <code>&#125;</code></p>
+<p>​    <code>return 0;</code></p>
+<p><code>&#125;</code></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="http://haibarazryblog.xyz/2022/03/19/task2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
+      <meta itemprop="name" content="D1antang">
       <meta itemprop="description" content="">
     </span>
 
@@ -260,7 +383,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
+      <meta itemprop="name" content="D1antang">
       <meta itemprop="description" content="">
     </span>
 
@@ -370,7 +493,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
+      <meta itemprop="name" content="D1antang">
       <meta itemprop="description" content="">
     </span>
 
@@ -437,7 +560,7 @@
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">John Doe</span>
+  <span class="author" itemprop="copyrightHolder">D1antang</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
   </div>
