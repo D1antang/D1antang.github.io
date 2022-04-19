@@ -16,7 +16,7 @@
 <meta property="og:description" content="这篇文章记录了配置yilia主题的过程  安装yilia  在gitbash上输入  1$ git clone https:&#x2F;&#x2F;github.com&#x2F;litten&#x2F;hexo-theme-yilia.git themes&#x2F;yilia   修改 config.yml 中的 theme 属性为 yilia    12cd themes&#x2F;yiliagit pull 执行完以上步骤就完成啦  Yilia属">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-04-19T09:23:23.000Z">
-<meta property="article:modified_time" content="2022-04-19T10:23:07.523Z">
+<meta property="article:modified_time" content="2022-04-19T11:47:41.128Z">
 <meta property="article:author" content="D1antang">
 <meta property="article:tag" content="learn">
 <meta name="twitter:card" content="summary">
@@ -44,7 +44,43 @@
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background: #4d4d4d"></div>
+<div class="overlay" style="background: #4d4d4d">
+	<div id="tp-weather-widget"></div>
+	<script>
+		(function(a, h, g, f, e, d, c, b) {
+			b = function() {
+				d = h.createElement(g);
+				c = h.getElementsByTagName(g)[0];
+				d.src = e;
+				d.charset = "utf-8";
+				d.async = 1;
+				c.parentNode.insertBefore(d, c)
+			};
+			a["SeniverseWeatherWidgetObject"] = f;
+			a[f] || (a[f] = function() {
+				(a[f].q = a[f].q || []).push(arguments)
+			});
+			a[f].l = +new Date();
+			if (a.attachEvent) {
+				a.attachEvent("onload", b)
+			} else {
+				a.addEventListener("load", b, false)
+			}
+		}(window, document, "script", "SeniverseWeatherWidget", "//cdn.sencdn.com/widget2/static/js/bundle.js"));
+		window.SeniverseWeatherWidget('show', {
+			flavor: "slim",
+			location: "WS06YNEMPP18",
+			geolocation: true,
+			language: "zh-Hans",
+			unit: "c",
+			theme: "auto",
+			token: "a579c7ea-507d-41d7-b578-3537882d20c2",
+			hover: "enabled",
+			container: "tp-weather-widget"
+		})
+	</script>
+	
+</div>
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
@@ -95,6 +131,14 @@
 	</header>		
 </div>
 
+
+
+
+<!-- 音乐 茉莉花 -->
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=298 height=52 src="//music.163.com/outchain/player?type=2&id=288849&auto=1&height=32"></iframe>
+
+
+
 <!--时钟-->
 <br>
 <div style="position:absolute; bottom:120px left:auto; width:100%;height:50%">
@@ -130,6 +174,7 @@
 		}
 	</script>
 </div>
+
 
 
     </div>
@@ -266,7 +311,7 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;div style=<span class="string">&quot;margin-top:10px;&quot;</span>&gt;</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;post-time&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;post-meta-item-icon&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">&quot;fa fa-keyboard-o&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;post-meta-item-text&quot;</span>&gt;</span>  字数统计: <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;post-count&quot;</span>&gt;</span>&lt;%= wordcount(post.content) %&gt;字<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;post-time&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="symbol">&amp;nbsp;</span> | <span class="symbol">&amp;nbsp;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;post-meta-item-icon&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">&quot;fa fa-hourglass-half&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;post-meta-item-text&quot;</span>&gt;</span>  阅读时长: <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;post-count&quot;</span>&gt;</span>&lt;%= min2read(post.content) %&gt;分<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <h4 id="在主题__configyml-中-head前添加代码"><a class="markdownIt-Anchor" href="#在主题__configyml-中-head前添加代码"></a> 在主题__config.yml 中 head前添加代码</h4>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;% <span class="keyword">if</span>(theme.<span class="property">word_count</span> &amp;&amp; !post.<span class="property">no_word_count</span>)&#123; %&gt;</span><br><span class="line">    &lt;%- <span class="title function_">partial</span>(<span class="string">&#x27;post/word&#x27;</span>) %&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="安装live2d模型"><a class="markdownIt-Anchor" href="#安装live2d模型"></a> 安装live2d模型</h2>
+<h3 id="安装live2d模型"><a class="markdownIt-Anchor" href="#安装live2d模型"></a> 安装live2d模型</h3>
 <h4 id="安装模块"><a class="markdownIt-Anchor" href="#安装模块"></a> 安装模块</h4>
 <figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install <span class="comment">--save hexo-helper-live2d</span></span><br></pre></td></tr></table></figure>
 <h4 id="配置"><a class="markdownIt-Anchor" href="#配置"></a> 配置</h4>
