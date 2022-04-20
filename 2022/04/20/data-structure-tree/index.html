@@ -6,16 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://haibarazryblog.xyz">
-  <title>Archives: 2022/4 | D1antang 的博客</title>
+  <title>data-structure-tree | D1antang 的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="追风赶月莫停留，平芜尽处是春山">
-<meta property="og:type" content="website">
-<meta property="og:title" content="D1antang 的博客">
-<meta property="og:url" content="http://haibarazryblog.xyz/archives/2022/04/index.html">
+  <meta name="description" content="数据结构-树 本文参考李春葆的《数据结构教程》系列，是了解树过程中的笔记.  树的基本概念  树的定义 n&#x3D;0时，是一棵空树，是树的特例. n&gt;1 时,  这n个节点里有且仅有一个根节点,简称根 其余节点可以分成m个互不相交的有限集,每一个有限集又满足树的定义,称为子树 树的抽象数据类型为   数据类型 elemtype 数据关系 本节点 , 后继节点 , 前驱节点 基本运算  InitT">
+<meta property="og:type" content="article">
+<meta property="og:title" content="data-structure-tree">
+<meta property="og:url" content="http://haibarazryblog.xyz/2022/04/20/data-structure-tree/index.html">
 <meta property="og:site_name" content="D1antang 的博客">
-<meta property="og:description" content="追风赶月莫停留，平芜尽处是春山">
+<meta property="og:description" content="数据结构-树 本文参考李春葆的《数据结构教程》系列，是了解树过程中的笔记.  树的基本概念  树的定义 n&#x3D;0时，是一棵空树，是树的特例. n&gt;1 时,  这n个节点里有且仅有一个根节点,简称根 其余节点可以分成m个互不相交的有限集,每一个有限集又满足树的定义,称为子树 树的抽象数据类型为   数据类型 elemtype 数据关系 本节点 , 后继节点 , 前驱节点 基本运算  InitT">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-04-20T07:58:50.000Z">
+<meta property="article:modified_time" content="2022-04-20T12:01:44.014Z">
 <meta property="article:author" content="D1antang">
+<meta property="article:tag" content="data structure">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="D1antang 的博客" type="application/atom+xml">
@@ -227,74 +230,117 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-data-structure-tree" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/04/20/markdown%E8%AF%AD%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2022-04-20T08:08:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-20</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/04/20/markdown%E8%AF%AD%E6%B3%95/">markdown语法</a>
+    <h1 class="article-title" itemprop="name">
+      data-structure-tree
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">learn</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/04/20/data-structure-tree/" class="archive-article-date">
+        
+        <a href="/2022/04/20/data-structure-tree/" class="archive-article-date">
   	<time datetime="2022-04-20T07:58:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-20</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/04/20/data-structure-tree/">data-structure-tree</a>
-    </h1>
-  
+        
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">812字</span>
+      </span>
+    </span>
 
-        <div class="article-info info-on-right">
-          
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">3分</span>
+      </span>
+    </span>
+</div>
+
+      
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="数据结构-树"><a class="markdownIt-Anchor" href="#数据结构-树"></a> 数据结构-树</h1>
+<p>本文参考李春葆的《数据结构教程》系列，是了解树过程中的笔记.</p>
+<h2 id="树的基本概念"><a class="markdownIt-Anchor" href="#树的基本概念"></a> 树的基本概念</h2>
+<h3 id="树的定义"><a class="markdownIt-Anchor" href="#树的定义"></a> 树的定义</h3>
+<p>n=0时，是一棵空树，是树的特例.</p>
+<p>n&gt;1 时,  这n个节点里有且仅有一个<strong>根节点</strong>,简称<strong>根</strong></p>
+<p>其余节点可以分成m个互不相交的有限集,每一个有限集又满足树的定义,称为<strong>子树</strong></p>
+<p>树的抽象数据类型为</p>
+<hr />
+<ul>
+<li>数据类型 elemtype</li>
+<li>数据关系 本节点 , 后继节点 , 前驱节点</li>
+<li>基本运算
+<ul>
+<li>InitTree(&amp;t) 初始化树</li>
+<li>DestoryTree(&amp;t) 销毁树</li>
+<li>TreeHeight(t) 求树 t 的高度</li>
+<li>Parent(t,p) 求树 t 中 节点p 的 双亲节点</li>
+<li>Bother(t,p)  求树 t 中 节点p 的 兄弟节点</li>
+<li>Sons(t,p) 求树 t 中 节点p 的 子孙节点</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="树的逻辑表达方法"><a class="markdownIt-Anchor" href="#树的逻辑表达方法"></a> 树的逻辑表达方法</h3>
+<h4 id="树形表达法"><a class="markdownIt-Anchor" href="#树形表达法"></a> 树形表达法</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">graph TD</span><br><span class="line">A((A))--&gt;B((B))</span><br><span class="line">A--&gt;C((C))</span><br><span class="line">A--&gt;D((D))</span><br><span class="line">B--&gt;E((E))</span><br><span class="line">B--&gt;F((F))</span><br><span class="line">C--&gt;G((G))</span><br><span class="line">G--&gt;J((J))</span><br><span class="line">D--&gt;H((H))</span><br><span class="line">D--&gt;I((I))</span><br><span class="line">I--&gt;K((K))</span><br><span class="line">I--&gt;L((L))</span><br><span class="line">I--&gt;M((M))</span><br></pre></td></tr></table></figure>
+<h4 id="文式图表示法"><a class="markdownIt-Anchor" href="#文式图表示法"></a> 文式图表示法</h4>
+<p>用包含关系来表示节点之间的关系</p>
+<h4 id="凹入表示法"><a class="markdownIt-Anchor" href="#凹入表示法"></a> 凹入表示法</h4>
+<p>子树较短,树根在上</p>
+<h4 id="括号表示法"><a class="markdownIt-Anchor" href="#括号表示法"></a> 括号表示法</h4>
+<p>用括号包含关系来表示节点之间的关系</p>
+<h3 id="基本术语"><a class="markdownIt-Anchor" href="#基本术语"></a> 基本术语</h3>
+<h4 id="节点的度"><a class="markdownIt-Anchor" href="#节点的度"></a> 节点的度</h4>
+<p>子树的数量</p>
+<h4 id="树的度"><a class="markdownIt-Anchor" href="#树的度"></a> 树的度</h4>
+<p>节点的度中的最大值(度为m的树称为m次树)</p>
+<h4 id="分支节点与叶子节点"><a class="markdownIt-Anchor" href="#分支节点与叶子节点"></a> 分支节点与叶子节点</h4>
+<p>度不为0的节点叫<strong>分支节点</strong></p>
+<p>度为0的节点叫<strong>叶子节点</strong></p>
+<h4 id="路径和路径节点"><a class="markdownIt-Anchor" href="#路径和路径节点"></a> 路径和路径节点</h4>
+<p>两个结点d_i和d_j的结点序列<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">（</mi><msub><mi>d</mi><mi>i</mi></msub><mi mathvariant="normal">，</mi><msub><mi>d</mi><mrow><mi>i</mi><mn>1</mn></mrow></msub><mi mathvariant="normal">，</mi><msub><mi>d</mi><mrow><mi>i</mi><mn>2</mn></mrow></msub><mi mathvariant="normal">，</mi><mo>…</mo><mi mathvariant="normal">，</mi><msub><mi>d</mi><mi>j</mi></msub><mi mathvariant="normal">）</mi></mrow><annotation encoding="application/x-tex">（d_i，d_{i1}， d_{i2}，…，d_j）</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="mord cjk_fallback">（</span><span class="mord"><span class="mord mathdefault">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord cjk_fallback">，</span><span class="mord"><span class="mord mathdefault">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord cjk_fallback">，</span><span class="mord"><span class="mord mathdefault">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord cjk_fallback">，</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord cjk_fallback">，</span><span class="mord"><span class="mord mathdefault">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mord cjk_fallback">）</span></span></span></span>称为<strong>路径</strong>。其中 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>&lt;</mo><msub><mi>d</mi><mi>x</mi></msub><mi mathvariant="normal">，</mi><msub><mi>d</mi><mi>y</mi></msub><mo>&gt;</mo></mrow><annotation encoding="application/x-tex">&lt;d _x，d_y&gt;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord cjk_fallback">，</span><span class="mord"><span class="mord mathdefault">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.15139200000000003em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.03588em;">y</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;</span></span></span></span>是分支。</p>
+<p><strong>路径长度</strong>等于路径所通过的结点数目减1（即路径上分支数目）</p>
+<h4 id="孩子节点双亲节点兄弟节点"><a class="markdownIt-Anchor" href="#孩子节点双亲节点兄弟节点"></a> 孩子节点,双亲节点,兄弟节点</h4>
+<p>在一棵树中，每个结点的直接后继，被称作该结点的<strong>孩子结点</strong>（或子女结点）。</p>
+<p>相应地，该结点被称作孩子结点的<strong>双亲结点</strong>（或<strong>父母结点</strong>）</p>
+<p>具有同一<strong>双亲节点</strong>的节点叫做<strong>兄弟节点</strong></p>
+<h4 id="树的层次和树的高度"><a class="markdownIt-Anchor" href="#树的层次和树的高度"></a> 树的层次和树的高度</h4>
+<p>树中的每个结点都处在一个层次上。结点的层次从树根开始定义，根结点为第1层，它的孩子结点为第2层，以此类推，一个结点所在的层次为其双亲结点所在的层次加1。</p>
+<p>树中结点的最大层次称为树的<strong>高度</strong></p>
+<h4 id="有序树和无序树"><a class="markdownIt-Anchor" href="#有序树和无序树"></a> 有序树和无序树</h4>
+<p>若树中各结点的<strong>子树</strong>是按照一定的次序从左向右安排的，且相对次序是不能随意变换的，则称为<strong>有序树</strong>，否则称为<strong>无序树</strong>。</p>
+<h4 id="森林"><a class="markdownIt-Anchor" href="#森林"></a> 森林</h4>
+<p><em>n</em>（<em>n</em>＞0）个互不相交的树的集合称为<strong>森林</strong>。只要把树的<strong>根结点</strong>删去就成了森林。</p>
+<h3 id="性质"><a class="markdownIt-Anchor" href="#性质"></a> 性质</h3>
+<ul>
+<li>树的节点数等于所有节点的度数加1</li>
+<li>度为m的树中第i层最多有 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>m</mi><mrow><mi>i</mi><mo>−</mo><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">m^{i-1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.824664em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault">m</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.824664em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span></span></span></span>个节点</li>
+<li>高度为h的m次树最多有 $ \frac{m^h-1}{m-1}$个节点</li>
+<li>那么可以用对数表示最小高度</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -306,95 +352,115 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://haibarazryblog.xyz/2022/04/20/data-structure-tree/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/04/19/yilia%E9%85%8D%E7%BD%AE/" class="archive-article-date">
-  	<time datetime="2022-04-19T09:23:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-19</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2022/04/20/markdown%E8%AF%AD%E6%B3%95/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          markdown语法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/04/19/yilia%E9%85%8D%E7%BD%AE/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">yilia配置</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/04/19/yilia%E9%85%8D%E7%BD%AE/">yilia配置</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">learn</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/04/19/new-start/" class="archive-article-date">
-  	<time datetime="2022-04-19T09:13:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/04/19/new-start/">new_start</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">daily</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -417,8 +483,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
