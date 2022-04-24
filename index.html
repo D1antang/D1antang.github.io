@@ -229,6 +229,375 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-javascript-learning" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/04/24/javascript-learning/">javascript-learning</a>
+    </h1>
+  
+
+        
+        <a href="/2022/04/24/javascript-learning/" class="archive-article-date">
+  	<time datetime="2022-04-24T13:53:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-24</time>
+</a>
+        
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">0字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">1分</span>
+      </span>
+    </span>
+</div>
+
+      
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/04/24/javascript-learning/">全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-jQuery-learning" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/04/24/jQuery-learning/">jQuery-learning</a>
+    </h1>
+  
+
+        
+        <a href="/2022/04/24/jQuery-learning/" class="archive-article-date">
+  	<time datetime="2022-04-24T13:37:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-24</time>
+</a>
+        
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">259字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">1分</span>
+      </span>
+    </span>
+</div>
+
+      
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="jquery学习">jQuery学习</h1>
+<h2 id="学习目的">学习目的</h2>
+<h3 id="js-的缺点">Js 的缺点</h3>
+<ol type="1">
+<li>不能添加多个同名函数(覆盖)</li>
+<li>原生js 的 api 名字太长</li>
+<li>原生js 有时候的代码多余</li>
+<li>原生Js 有可能浏览器兼容问题</li>
+<li>原生js 容错率低</li>
+</ol>
+<p>而 jQuery 能克服上述缺点</p>
+<ol type="1">
+<li>可以写多个入口函数</li>
+<li>api 容易记忆</li>
+<li>代码不重复(隐式迭代)</li>
+<li>无浏览器兼容</li>
+<li>jQuery 容错率高</li>
+</ol>
+<h2 id="jquery基础">JQuery基础</h2>
+<h3 id="jquery本质">jQuery本质</h3>
+<p>jQuery 是一个 js 库,它使 js 更加容易,封装了很多方法</p>
+<p>我们学习jQuery 就是学习这些方法</p>
+<h3 id="jquery-的使用">jQuery 的使用</h3>
+<ol type="1">
+<li>引入 jQuery 文件</li>
+<li>写一个入口函数</li>
+<li>找到你要操作的元素(选择器),去操作他(添加属性,样式,文本)</li>
+</ol>
+<h4 id="jquery的安装">jQuery的安装</h4>
+<p>访问 www.jquery.com</p>
+<h4 id="jquery-的入口函数">jQuery 的入口函数</h4>
+<h5 id="写法">写法</h5>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="variable language_">document</span>).<span class="title function_">ready</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="keyword">function</span>(<span class="params"></span>)&#123;&#125;)</span><br></pre></td></tr></table></figure>
+<h5 id="与window.onload区别">与window.onload()区别</h5>
+<ol type="1">
+<li>数目不同</li>
+<li>时机不同
+<ul>
+<li>jquery dom 树加载完 执行</li>
+<li>window.onload() 全部加载完执行</li>
+</ul></li>
+</ol>
+<h3 id="jquery-中的">jquery 中的 $</h3>
+<p>$ 是一个自执行函数</p>
+<p>所以</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/04/24/jQuery-learning/">全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-ajax-learning" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/04/24/ajax-learning/">ajax-learning</a>
+    </h1>
+  
+
+        
+        <a href="/2022/04/24/ajax-learning/" class="archive-article-date">
+  	<time datetime="2022-04-24T13:09:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-24</time>
+</a>
+        
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">225字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">1分</span>
+      </span>
+    </span>
+</div>
+
+      
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="ajax学习">ajax学习</h1>
+<h2 id="基础">基础</h2>
+<h3 id="客户端和服务器">客户端和服务器</h3>
+<h4 id="客户端">客户端</h4>
+<p>消费资源的设备</p>
+<h4 id="服务器">服务器</h4>
+<p>发布资源和提供资源的设备</p>
+<h4 id="url">url</h4>
+<p>统一资源定位符</p>
+<h5 id="组成">组成</h5>
+<ol type="1">
+<li>通信协议</li>
+<li>服务器名称</li>
+<li>具体位置</li>
+</ol>
+<h4 id="网页的打开过程">网页的打开过程</h4>
+<ol type="1">
+<li>打开浏览器</li>
+<li>输入url</li>
+<li>发起资源<strong>请求</strong></li>
+<li>服务器接收到请求</li>
+<li>内部<strong>处理</strong>请求</li>
+<li><strong>响应</strong>请求给客户端</li>
+</ol>
+<h4 id="服务器对外提供的资源">服务器对外提供的资源</h4>
+<ol type="1">
+<li><p>内容(文字,图片,视频)</p></li>
+<li><p>数据 (网页的灵魂)</p></li>
+</ol>
+<h5 id="请求数据过程">请求数据过程</h5>
+<p>要想请求服务器上的数据资源,要用到<strong>XMLHttpRequest
+</strong>(对象)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> xhrObj = <span class="keyword">new</span> <span class="title class_">XMLHttprequest</span></span><br></pre></td></tr></table></figure>
+<h5 id="请求方式">请求方式</h5>
+<ul>
+<li>get 请求:获取资源</li>
+<li>post 请求:提交资源</li>
+</ul>
+<h3 id="了解ajax">了解Ajax</h3>
+<p>利用XMLHttprequest对象的交互方式</p>
+<h4 id="目的">目的</h4>
+<p>实现数据交互</p>
+<h4 id="经典应用场景">经典应用场景</h4>
+<ol type="1">
+<li><p>用户名检测</p></li>
+<li><p>搜索提示</p></li>
+<li><p>分页显示</p></li>
+<li><p>数据的增删查改</p></li>
+</ol>
+<h3 id="jquery中的ajax">jQuery中的Ajax</h3>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/04/24/ajax-learning/">全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-2022春ACM算法与程序设计练习题2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -251,7 +620,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">345字</span>
+        <span class="post-count">719字</span>
       </span>
     </span>
 
@@ -260,7 +629,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">1分</span>
+        <span class="post-count">4分</span>
       </span>
     </span>
 </div>
@@ -286,6 +655,12 @@
 <blockquote>
 <p>AC代码如下 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="title class_">ants</span></span><br><span class="line">&#123;</span><br><span class="line">    string name;</span><br><span class="line">    <span class="type">int</span> p;</span><br><span class="line">    <span class="type">char</span> direction;</span><br><span class="line">    <span class="type">int</span> time;</span><br><span class="line">&#125; ant;</span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">cmp_time</span><span class="params">(<span class="type">const</span> ant &amp;a, <span class="type">const</span> ant &amp;b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a.time &lt; b.time;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">cmp_p</span><span class="params">(<span class="type">const</span> ant &amp;a, <span class="type">const</span> ant &amp;b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a.p &lt; b.p;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> T;</span><br><span class="line">    cin &gt;&gt; T;</span><br><span class="line">    <span class="type">int</span> k;</span><br><span class="line">    <span class="keyword">for</span> (k = <span class="number">1</span>; k &lt;= T; k++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> N, L;</span><br><span class="line">        cin &gt;&gt; N &gt;&gt; L;</span><br><span class="line">        <span class="type">int</span> i;</span><br><span class="line">        ant antsSortTime[<span class="number">105</span>];</span><br><span class="line">        ant antsSortP[<span class="number">105</span>];</span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; N; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            cin &gt;&gt; antsSortTime[i].name &gt;&gt; antsSortTime[i].p &gt;&gt; antsSortTime[i].direction;</span><br><span class="line">            antsSortP[i].name = antsSortTime[i].name;</span><br><span class="line">            antsSortP[i].p = antsSortTime[i].p;</span><br><span class="line">            antsSortP[i].direction = antsSortTime[i].direction;</span><br><span class="line">            <span class="keyword">if</span> (antsSortTime[i].direction == <span class="string">&#x27;L&#x27;</span>)</span><br><span class="line">                antsSortTime[i].time = antsSortTime[i].p;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                antsSortTime[i].time = L - antsSortTime[i].p;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">sort</span>(antsSortTime, antsSortTime + N, cmp_time);</span><br><span class="line">        <span class="built_in">sort</span>(antsSortP, antsSortP + N, cmp_p);</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Case #&quot;</span> &lt;&lt; k &lt;&lt; <span class="string">&quot;:&quot;</span> &lt;&lt; endl;</span><br><span class="line">        <span class="type">int</span> left = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> right = N - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; N; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            cout &lt;&lt; antsSortTime[i].time &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">            <span class="keyword">if</span> (antsSortTime[i].direction == <span class="string">&#x27;L&#x27;</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                cout &lt;&lt; antsSortP[left].name &lt;&lt; endl;</span><br><span class="line">                left++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                cout &lt;&lt; antsSortP[right].name &lt;&lt; endl;</span><br><span class="line">                right--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">system</span>(<span class="string">&quot;pasue&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 </blockquote>
+<h1 id="b.clock">B.Clock</h1>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">double</span> degreePerMinute = <span class="number">6.0</span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> t;</span><br><span class="line">    cin &gt;&gt; t;</span><br><span class="line">    <span class="keyword">while</span> (t--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> hour, minute;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%2d:%2d&quot;</span>, &amp;hour, &amp;minute);</span><br><span class="line">        <span class="type">double</span> degreeOfHour = minute / <span class="number">2.0</span> + (hour % <span class="number">12</span>) * <span class="number">5</span> * degreePerMinute;</span><br><span class="line">        <span class="type">double</span> degreeOfMinute = minute * degreePerMinute;</span><br><span class="line">        <span class="type">double</span> ans = <span class="built_in">fabs</span>(degreeOfHour - degreeOfMinute);</span><br><span class="line">        <span class="keyword">if</span> (ans &gt; <span class="number">180</span>)</span><br><span class="line">            ans = <span class="number">360</span> - ans;</span><br><span class="line">        <span class="keyword">if</span> (ans - <span class="built_in">floor</span>(ans))</span><br><span class="line">        &#123;</span><br><span class="line">             cout &lt;&lt; <span class="built_in">round</span>(ans*<span class="number">2</span>) &lt;&lt; <span class="string">&quot;/2&quot;</span> &lt;&lt; endl;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            cout &lt;&lt; <span class="built_in">round</span>(ans) &lt;&lt; endl;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="c.论文搜索">C.论文搜索</h1>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> T;</span><br><span class="line">    cin &gt;&gt; T;</span><br><span class="line">    <span class="keyword">while</span> (T--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> N;</span><br><span class="line">        cin &gt;&gt; N;</span><br><span class="line">        <span class="type">char</span> keyword[<span class="number">25</span>];</span><br><span class="line">        <span class="built_in">getchar</span>();</span><br><span class="line">        cin.<span class="built_in">getline</span>(keyword,<span class="number">25</span>);</span><br><span class="line">        <span class="type">int</span> M = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (N--)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> flag = <span class="number">0</span>;</span><br><span class="line">            <span class="type">int</span> isFirst = <span class="number">0</span>;</span><br><span class="line">            <span class="type">char</span> article[<span class="number">105</span>];</span><br><span class="line">            cin.<span class="built_in">getline</span>(article, <span class="number">104</span>);</span><br><span class="line">            <span class="type">char</span> *p;</span><br><span class="line">            p = <span class="built_in">strtok</span>(article,<span class="string">&quot; &quot;</span>);</span><br><span class="line">            <span class="keyword">if</span> (!<span class="built_in">strcmp</span>(p, keyword))</span><br><span class="line">                flag++;</span><br><span class="line">            <span class="keyword">while</span> (p = <span class="built_in">strtok</span>(<span class="literal">NULL</span>, <span class="string">&quot; &quot;</span>))</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (!(<span class="built_in">strcmp</span>(p, keyword)))</span><br><span class="line">                    flag++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (flag)</span><br><span class="line">                M++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (M)</span><br><span class="line">        &#123;</span><br><span class="line">            cout &lt;&lt; M &lt;&lt; <span class="string">&quot;\n&quot;</span></span><br><span class="line">                 &lt;&lt; endl;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;Do not find&quot;</span></span><br><span class="line">                 &lt;&lt; <span class="string">&quot;\n&quot;</span></span><br><span class="line">                 &lt;&lt; endl;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="d.传球">D.传球</h1>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">my_power</span><span class="params">(<span class="type">int</span> x,<span class="type">int</span> y)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(y==<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">return</span> x;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> tmp = <span class="built_in">my_power</span>(x,y/<span class="number">2</span>);</span><br><span class="line">        <span class="keyword">if</span>(y&amp;<span class="number">1</span>)</span><br><span class="line">            <span class="keyword">return</span> tmp*tmp*x;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> tmp*tmp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 第m次要传到那个人手上,m-1就不能在那个人手上,而随意传球n-1次(最后一次一定要传给那个人),每次m-1个选择</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">dp</span><span class="params">(<span class="type">int</span> m,<span class="type">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> ret;</span><br><span class="line">    <span class="keyword">if</span>(n == <span class="number">1</span>)</span><br><span class="line">    ret = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    ret = <span class="built_in">my_power</span>(m<span class="number">-1</span>,n<span class="number">-1</span>) - <span class="built_in">dp</span>(m,n<span class="number">-1</span>);</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> M,N;</span><br><span class="line">    cin&gt;&gt;M&gt;&gt;N;</span><br><span class="line">    cout&lt;&lt;<span class="built_in">dp</span>(M,N);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
 
@@ -875,19 +1250,19 @@ statement 和 comment 是同义词，但在程序中它们的含义不同。 (1)
 
 
   
-    <article id="post-data-structure-tree" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-数据结构-树" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/04/20/data-structure-tree/">data-structure-tree</a>
+      <a class="article-title" href="/2022/04/20/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%A0%91/">数据结构-树</a>
     </h1>
   
 
         
-        <a href="/2022/04/20/data-structure-tree/" class="archive-article-date">
+        <a href="/2022/04/20/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%A0%91/" class="archive-article-date">
   	<time datetime="2022-04-20T07:58:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-20</time>
 </a>
         
@@ -897,7 +1272,7 @@ statement 和 comment 是同义词，但在程序中它们的含义不同。 (1)
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">1.1k字</span>
+        <span class="post-count">1.5k字</span>
       </span>
     </span>
 
@@ -906,7 +1281,7 @@ statement 和 comment 是同义词，但在程序中它们的含义不同。 (1)
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">3分</span>
+        <span class="post-count">5分</span>
       </span>
     </span>
 </div>
@@ -1019,6 +1394,17 @@ class="math inline">\(m^{i-1}\)</span>个节点</p></li>
 <h4 id="链式储存结构">链式储存结构</h4>
 <p>包含值,左孩子节点,右孩子节点</p>
 <h3 id="遍历">遍历</h3>
+<h4 id="先序遍历-1">先序遍历</h4>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">PreOrder</span><span class="params">(BiTree root)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(root!=<span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%c&quot;</span>,root-&gt;data);</span><br><span class="line">        PreOrder(root-&gt;left);</span><br><span class="line">        PreOrder(root-&gt;right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="中序遍历">中序遍历</h4>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 中序遍历</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">InOrder</span><span class="params">(BiTree root)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (root != <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        InOrder(root-&gt;left);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%c &quot;</span>, root-&gt;data); <span class="comment">//访问根结点</span></span><br><span class="line">        InOrder(root-&gt;right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="后序遍历-1">后序遍历</h4>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 后序遍历</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">PostOrder</span><span class="params">(BiTree root)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (root != <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        PostOrder(root-&gt;left);</span><br><span class="line">        PostOrder(root-&gt;right);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%c &quot;</span>, root-&gt;data);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="哈夫曼树">哈夫曼树</h3>
+<p>设二叉树有<code>n0</code>个带权值的叶子界点，那么从根节点到各个叶节点的路径长度与相应结点权值的乘积的和，叫做二叉树的<strong>带权路径长度</strong></p>
+<p>具有最小带权路径长度的<strong>二叉树</strong>叫做<strong>哈夫曼树</strong></p>
+<h4 id="构造">构造</h4>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">CreateHT</span><span class="params">(BiTNode ht[], <span class="type">int</span> n0)</span> <span class="comment">//构造哈夫曼树</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> i, k, lnode, rnode;</span><br><span class="line">    <span class="type">double</span> min1, min2;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">2</span> * n0 - <span class="number">1</span>; i++)</span><br><span class="line">        ht[i].parent = ht[i].lchild = ht[i].rchild = <span class="number">-1</span>; <span class="comment">//所有节点的域置初值-1</span></span><br><span class="line">    <span class="keyword">for</span> (i = n0; i &lt;= <span class="number">2</span> * n0 - <span class="number">2</span>; i++)                   <span class="comment">//构造哈夫曼树的n0-1个节点</span></span><br><span class="line">    &#123;</span><br><span class="line">        min1 = min2 = <span class="number">32767</span>; <span class="comment">// lnode和rnode为最小权重的两个节点位置</span></span><br><span class="line">        lnode = rnode = <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">for</span> (k = <span class="number">0</span>; k &lt;= i - <span class="number">1</span>; k++) <span class="comment">//在ht[0..i-1]中找权值最小的两个节点</span></span><br><span class="line">            <span class="keyword">if</span> (ht[k].parent == <span class="number">-1</span>)  <span class="comment">//只在尚未构造二叉树的节点中查找</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (ht[k].weight &lt; min1)</span><br><span class="line">                &#123;</span><br><span class="line">                    min2 = min1;</span><br><span class="line">                    rnode = lnode;</span><br><span class="line">                    min1 = ht[k].weight;</span><br><span class="line">                    lnode = k;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (ht[k].weight &lt; min2)</span><br><span class="line">                &#123;</span><br><span class="line">                    min2 = ht[k].weight;</span><br><span class="line">                    rnode = k;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        ht[i].weight = ht[lnode].weight + ht[rnode].weight;</span><br><span class="line">        ht[i].lchild = lnode;</span><br><span class="line">        ht[i].rchild = rnode; <span class="comment">// ht[i]作为双亲节点</span></span><br><span class="line">        ht[lnode].parent = i;</span><br><span class="line">        ht[rnode].parent = i;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
 
@@ -1042,7 +1428,7 @@ class="math inline">\(m^{i-1}\)</span>个节点</p></li>
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2022/04/20/data-structure-tree/">全文 >></a>
+          <a class="article-more-a" href="/2022/04/20/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%A0%91/">全文 >></a>
         </p>
       
 
@@ -1209,102 +1595,10 @@ head前添加代码</h4>
 
 
   
-    <article id="post-new-start" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/04/19/new-start/">new_start</a>
-    </h1>
-  
-
-        
-        <a href="/2022/04/19/new-start/" class="archive-article-date">
-  	<time datetime="2022-04-19T09:13:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-19</time>
-</a>
-        
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">14字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">1分</span>
-      </span>
-    </span>
-</div>
-
-      
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="section">2022.4.19</h1>
-<p>希望一切能有个新的开始</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">daily</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/04/19/new-start/">全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+    </nav>
   
 
 
@@ -1423,7 +1717,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">data structure</a>
+                <a href="javascript:void(0)" class="js-tag color4">web</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1436,6 +1730,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">后端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">data structure</a>
               </li>
             
             <div class="clearfix"></div>
