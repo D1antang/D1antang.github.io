@@ -251,7 +251,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">719字</span>
+        <span class="post-count">718字</span>
       </span>
     </span>
 
@@ -270,28 +270,32 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="a">A</h1>
-<ol type="1">
-<li><p>蚂蚁之间的位置顺序不变</p></li>
-<li><p>掉下去的一定是最左边或者最右边的</p></li>
-<li><p>最左边或者最右边的哪个时间短哪个先掉下去</p></li>
+        <h1 id="A"><a href="#A" class="headerlink" title="A"></a>A</h1><ol>
+<li><p>蚂蚁之间的位置顺序不变</p>
+</li>
+<li><p>掉下去的一定是最左边或者最右边的</p>
+</li>
+<li><p>最左边或者最右边的哪个时间短哪个先掉下去</p>
+</li>
 </ol>
 <p>所以只需要</p>
-<ol type="1">
+<ol>
 <li>按照相对位置排序</li>
 <li>按照掉落时间排序</li>
 <li>按照掉落时间寻访方向</li>
 <li>按照方向寻访名字</li>
 </ol>
 <blockquote>
-<p>AC代码如下 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="title class_">ants</span></span><br><span class="line">&#123;</span><br><span class="line">    string name;</span><br><span class="line">    <span class="type">int</span> p;</span><br><span class="line">    <span class="type">char</span> direction;</span><br><span class="line">    <span class="type">int</span> time;</span><br><span class="line">&#125; ant;</span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">cmp_time</span><span class="params">(<span class="type">const</span> ant &amp;a, <span class="type">const</span> ant &amp;b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a.time &lt; b.time;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">cmp_p</span><span class="params">(<span class="type">const</span> ant &amp;a, <span class="type">const</span> ant &amp;b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a.p &lt; b.p;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> T;</span><br><span class="line">    cin &gt;&gt; T;</span><br><span class="line">    <span class="type">int</span> k;</span><br><span class="line">    <span class="keyword">for</span> (k = <span class="number">1</span>; k &lt;= T; k++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> N, L;</span><br><span class="line">        cin &gt;&gt; N &gt;&gt; L;</span><br><span class="line">        <span class="type">int</span> i;</span><br><span class="line">        ant antsSortTime[<span class="number">105</span>];</span><br><span class="line">        ant antsSortP[<span class="number">105</span>];</span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; N; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            cin &gt;&gt; antsSortTime[i].name &gt;&gt; antsSortTime[i].p &gt;&gt; antsSortTime[i].direction;</span><br><span class="line">            antsSortP[i].name = antsSortTime[i].name;</span><br><span class="line">            antsSortP[i].p = antsSortTime[i].p;</span><br><span class="line">            antsSortP[i].direction = antsSortTime[i].direction;</span><br><span class="line">            <span class="keyword">if</span> (antsSortTime[i].direction == <span class="string">&#x27;L&#x27;</span>)</span><br><span class="line">                antsSortTime[i].time = antsSortTime[i].p;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                antsSortTime[i].time = L - antsSortTime[i].p;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">sort</span>(antsSortTime, antsSortTime + N, cmp_time);</span><br><span class="line">        <span class="built_in">sort</span>(antsSortP, antsSortP + N, cmp_p);</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Case #&quot;</span> &lt;&lt; k &lt;&lt; <span class="string">&quot;:&quot;</span> &lt;&lt; endl;</span><br><span class="line">        <span class="type">int</span> left = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> right = N - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; N; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            cout &lt;&lt; antsSortTime[i].time &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">            <span class="keyword">if</span> (antsSortTime[i].direction == <span class="string">&#x27;L&#x27;</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                cout &lt;&lt; antsSortP[left].name &lt;&lt; endl;</span><br><span class="line">                left++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                cout &lt;&lt; antsSortP[right].name &lt;&lt; endl;</span><br><span class="line">                right--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">system</span>(<span class="string">&quot;pasue&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>AC代码如下</p>
 </blockquote>
-<h1 id="b.clock">B.Clock</h1>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">double</span> degreePerMinute = <span class="number">6.0</span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> t;</span><br><span class="line">    cin &gt;&gt; t;</span><br><span class="line">    <span class="keyword">while</span> (t--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> hour, minute;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%2d:%2d&quot;</span>, &amp;hour, &amp;minute);</span><br><span class="line">        <span class="type">double</span> degreeOfHour = minute / <span class="number">2.0</span> + (hour % <span class="number">12</span>) * <span class="number">5</span> * degreePerMinute;</span><br><span class="line">        <span class="type">double</span> degreeOfMinute = minute * degreePerMinute;</span><br><span class="line">        <span class="type">double</span> ans = <span class="built_in">fabs</span>(degreeOfHour - degreeOfMinute);</span><br><span class="line">        <span class="keyword">if</span> (ans &gt; <span class="number">180</span>)</span><br><span class="line">            ans = <span class="number">360</span> - ans;</span><br><span class="line">        <span class="keyword">if</span> (ans - <span class="built_in">floor</span>(ans))</span><br><span class="line">        &#123;</span><br><span class="line">             cout &lt;&lt; <span class="built_in">round</span>(ans*<span class="number">2</span>) &lt;&lt; <span class="string">&quot;/2&quot;</span> &lt;&lt; endl;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            cout &lt;&lt; <span class="built_in">round</span>(ans) &lt;&lt; endl;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h1 id="c.论文搜索">C.论文搜索</h1>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> T;</span><br><span class="line">    cin &gt;&gt; T;</span><br><span class="line">    <span class="keyword">while</span> (T--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> N;</span><br><span class="line">        cin &gt;&gt; N;</span><br><span class="line">        <span class="type">char</span> keyword[<span class="number">25</span>];</span><br><span class="line">        <span class="built_in">getchar</span>();</span><br><span class="line">        cin.<span class="built_in">getline</span>(keyword,<span class="number">25</span>);</span><br><span class="line">        <span class="type">int</span> M = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (N--)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> flag = <span class="number">0</span>;</span><br><span class="line">            <span class="type">int</span> isFirst = <span class="number">0</span>;</span><br><span class="line">            <span class="type">char</span> article[<span class="number">105</span>];</span><br><span class="line">            cin.<span class="built_in">getline</span>(article, <span class="number">104</span>);</span><br><span class="line">            <span class="type">char</span> *p;</span><br><span class="line">            p = <span class="built_in">strtok</span>(article,<span class="string">&quot; &quot;</span>);</span><br><span class="line">            <span class="keyword">if</span> (!<span class="built_in">strcmp</span>(p, keyword))</span><br><span class="line">                flag++;</span><br><span class="line">            <span class="keyword">while</span> (p = <span class="built_in">strtok</span>(<span class="literal">NULL</span>, <span class="string">&quot; &quot;</span>))</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (!(<span class="built_in">strcmp</span>(p, keyword)))</span><br><span class="line">                    flag++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (flag)</span><br><span class="line">                M++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (M)</span><br><span class="line">        &#123;</span><br><span class="line">            cout &lt;&lt; M &lt;&lt; <span class="string">&quot;\n&quot;</span></span><br><span class="line">                 &lt;&lt; endl;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;Do not find&quot;</span></span><br><span class="line">                 &lt;&lt; <span class="string">&quot;\n&quot;</span></span><br><span class="line">                 &lt;&lt; endl;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h1 id="d.传球">D.传球</h1>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">my_power</span><span class="params">(<span class="type">int</span> x,<span class="type">int</span> y)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(y==<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">return</span> x;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> tmp = <span class="built_in">my_power</span>(x,y/<span class="number">2</span>);</span><br><span class="line">        <span class="keyword">if</span>(y&amp;<span class="number">1</span>)</span><br><span class="line">            <span class="keyword">return</span> tmp*tmp*x;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> tmp*tmp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 第m次要传到那个人手上,m-1就不能在那个人手上,而随意传球n-1次(最后一次一定要传给那个人),每次m-1个选择</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">dp</span><span class="params">(<span class="type">int</span> m,<span class="type">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> ret;</span><br><span class="line">    <span class="keyword">if</span>(n == <span class="number">1</span>)</span><br><span class="line">    ret = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    ret = <span class="built_in">my_power</span>(m<span class="number">-1</span>,n<span class="number">-1</span>) - <span class="built_in">dp</span>(m,n<span class="number">-1</span>);</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> M,N;</span><br><span class="line">    cin&gt;&gt;M&gt;&gt;N;</span><br><span class="line">    cout&lt;&lt;<span class="built_in">dp</span>(M,N);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="title class_">ants</span></span><br><span class="line">&#123;</span><br><span class="line">    string name;</span><br><span class="line">    <span class="type">int</span> p;</span><br><span class="line">    <span class="type">char</span> direction;</span><br><span class="line">    <span class="type">int</span> time;</span><br><span class="line">&#125; ant;</span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">cmp_time</span><span class="params">(<span class="type">const</span> ant &amp;a, <span class="type">const</span> ant &amp;b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a.time &lt; b.time;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">cmp_p</span><span class="params">(<span class="type">const</span> ant &amp;a, <span class="type">const</span> ant &amp;b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a.p &lt; b.p;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> T;</span><br><span class="line">    cin &gt;&gt; T;</span><br><span class="line">    <span class="type">int</span> k;</span><br><span class="line">    <span class="keyword">for</span> (k = <span class="number">1</span>; k &lt;= T; k++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> N, L;</span><br><span class="line">        cin &gt;&gt; N &gt;&gt; L;</span><br><span class="line">        <span class="type">int</span> i;</span><br><span class="line">        ant antsSortTime[<span class="number">105</span>];</span><br><span class="line">        ant antsSortP[<span class="number">105</span>];</span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; N; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            cin &gt;&gt; antsSortTime[i].name &gt;&gt; antsSortTime[i].p &gt;&gt; antsSortTime[i].direction;</span><br><span class="line">            antsSortP[i].name = antsSortTime[i].name;</span><br><span class="line">            antsSortP[i].p = antsSortTime[i].p;</span><br><span class="line">            antsSortP[i].direction = antsSortTime[i].direction;</span><br><span class="line">            <span class="keyword">if</span> (antsSortTime[i].direction == <span class="string">&#x27;L&#x27;</span>)</span><br><span class="line">                antsSortTime[i].time = antsSortTime[i].p;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                antsSortTime[i].time = L - antsSortTime[i].p;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">sort</span>(antsSortTime, antsSortTime + N, cmp_time);</span><br><span class="line">        <span class="built_in">sort</span>(antsSortP, antsSortP + N, cmp_p);</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Case #&quot;</span> &lt;&lt; k &lt;&lt; <span class="string">&quot;:&quot;</span> &lt;&lt; endl;</span><br><span class="line">        <span class="type">int</span> left = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> right = N - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; N; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            cout &lt;&lt; antsSortTime[i].time &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">            <span class="keyword">if</span> (antsSortTime[i].direction == <span class="string">&#x27;L&#x27;</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                cout &lt;&lt; antsSortP[left].name &lt;&lt; endl;</span><br><span class="line">                left++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                cout &lt;&lt; antsSortP[right].name &lt;&lt; endl;</span><br><span class="line">                right--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">system</span>(<span class="string">&quot;pasue&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="B-Clock"><a href="#B-Clock" class="headerlink" title="B.Clock"></a>B.Clock</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">double</span> degreePerMinute = <span class="number">6.0</span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> t;</span><br><span class="line">    cin &gt;&gt; t;</span><br><span class="line">    <span class="keyword">while</span> (t--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> hour, minute;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%2d:%2d&quot;</span>, &amp;hour, &amp;minute);</span><br><span class="line">        <span class="type">double</span> degreeOfHour = minute / <span class="number">2.0</span> + (hour % <span class="number">12</span>) * <span class="number">5</span> * degreePerMinute;</span><br><span class="line">        <span class="type">double</span> degreeOfMinute = minute * degreePerMinute;</span><br><span class="line">        <span class="type">double</span> ans = <span class="built_in">fabs</span>(degreeOfHour - degreeOfMinute);</span><br><span class="line">        <span class="keyword">if</span> (ans &gt; <span class="number">180</span>)</span><br><span class="line">            ans = <span class="number">360</span> - ans;</span><br><span class="line">        <span class="keyword">if</span> (ans - <span class="built_in">floor</span>(ans))</span><br><span class="line">        &#123;</span><br><span class="line">             cout &lt;&lt; <span class="built_in">round</span>(ans*<span class="number">2</span>) &lt;&lt; <span class="string">&quot;/2&quot;</span> &lt;&lt; endl;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            cout &lt;&lt; <span class="built_in">round</span>(ans) &lt;&lt; endl;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="C-论文搜索"><a href="#C-论文搜索" class="headerlink" title="C.论文搜索"></a>C.论文搜索</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> T;</span><br><span class="line">    cin &gt;&gt; T;</span><br><span class="line">    <span class="keyword">while</span> (T--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> N;</span><br><span class="line">        cin &gt;&gt; N;</span><br><span class="line">        <span class="type">char</span> keyword[<span class="number">25</span>];</span><br><span class="line">        <span class="built_in">getchar</span>();</span><br><span class="line">        cin.<span class="built_in">getline</span>(keyword,<span class="number">25</span>);</span><br><span class="line">        <span class="type">int</span> M = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (N--)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> flag = <span class="number">0</span>;</span><br><span class="line">            <span class="type">int</span> isFirst = <span class="number">0</span>;</span><br><span class="line">            <span class="type">char</span> article[<span class="number">105</span>];</span><br><span class="line">            cin.<span class="built_in">getline</span>(article, <span class="number">104</span>);</span><br><span class="line">            <span class="type">char</span> *p;</span><br><span class="line">            p = <span class="built_in">strtok</span>(article,<span class="string">&quot; &quot;</span>);</span><br><span class="line">            <span class="keyword">if</span> (!<span class="built_in">strcmp</span>(p, keyword))</span><br><span class="line">                flag++;</span><br><span class="line">            <span class="keyword">while</span> (p = <span class="built_in">strtok</span>(<span class="literal">NULL</span>, <span class="string">&quot; &quot;</span>))</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (!(<span class="built_in">strcmp</span>(p, keyword)))</span><br><span class="line">                    flag++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (flag)</span><br><span class="line">                M++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (M)</span><br><span class="line">        &#123;</span><br><span class="line">            cout &lt;&lt; M &lt;&lt; <span class="string">&quot;\n&quot;</span></span><br><span class="line">                 &lt;&lt; endl;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;Do not find&quot;</span></span><br><span class="line">                 &lt;&lt; <span class="string">&quot;\n&quot;</span></span><br><span class="line">                 &lt;&lt; endl;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="D-传球"><a href="#D-传球" class="headerlink" title="D.传球"></a>D.传球</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">my_power</span><span class="params">(<span class="type">int</span> x,<span class="type">int</span> y)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(y==<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">return</span> x;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> tmp = <span class="built_in">my_power</span>(x,y/<span class="number">2</span>);</span><br><span class="line">        <span class="keyword">if</span>(y&amp;<span class="number">1</span>)</span><br><span class="line">            <span class="keyword">return</span> tmp*tmp*x;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> tmp*tmp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 第m次要传到那个人手上,m-1就不能在那个人手上,而随意传球n-1次(最后一次一定要传给那个人),每次m-1个选择</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">dp</span><span class="params">(<span class="type">int</span> m,<span class="type">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> ret;</span><br><span class="line">    <span class="keyword">if</span>(n == <span class="number">1</span>)</span><br><span class="line">    ret = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    ret = <span class="built_in">my_power</span>(m<span class="number">-1</span>,n<span class="number">-1</span>) - <span class="built_in">dp</span>(m,n<span class="number">-1</span>);</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> M,N;</span><br><span class="line">    cin&gt;&gt;M&gt;&gt;N;</span><br><span class="line">    cout&lt;&lt;<span class="built_in">dp</span>(M,N);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
       
 
@@ -386,9 +390,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="对赌阅读笔记">《对赌》阅读笔记</h1>
-<h2 id="序章">序章</h2>
-<p>序章简要地概括了一下本书的主要内容。</p>
+        <h1 id="《对赌》阅读笔记"><a href="#《对赌》阅读笔记" class="headerlink" title="《对赌》阅读笔记"></a>《对赌》阅读笔记</h1><h2 id="序章"><a href="#序章" class="headerlink" title="序章"></a>序章</h2><p>序章简要地概括了一下本书的主要内容。</p>
 <p>这本书是一个扑克大师写的，她认为人生的很大一部分都在做决策，而决策又分成几种。</p>
 <p>一种是象棋式的，每一步只要按照最优解走，总会走向胜利。</p>
 <p>一种是扑克式的，决策水平决定成功的概率，而剩下的则交给运气。</p>
@@ -396,9 +398,7 @@
 <p>而这位扑克大师就想经由自己在扑克界的经验和对身边那些”大佬“的观察写了这本书，来传达一些有关自己决策的经验。</p>
 <p>我从中提取出了三个核心概念，也即“风险共担”，“结果导向”和“自利性偏差”。</p>
 <p>风险共担告诉我们虽然我们平时存在着各种各样让我们不冷静的因素，这些因素会影响但是当我们面对一个相当大的风险以后，我们会在风险的胁迫下变得冷静下来。当然，难以避免的是，由于人的精力是有限的，随着精力的下降，我们的决策水平也会受影响。但是实际上，在大多数时候，我们做决策时还是拥有足够的精力的，然而，我们往往是风险厌恶的。其实这时候我们不妨敢于去承担一定的风险，在风险的压力下，我们可以有一个优秀的决策，并最终导向成功。</p>
-<p>结果导向则告诉我们我们对于一个决策的判断，往往基于其结果，这其实是不对的。作者让我们回想我们认为的过去一年做的最好的决策和最坏的决策，然后让我们扪心自问，自己挑选出来的最好的决策结果是否是成功的，最坏的决策结果是否是失败的。说实话，在看到这一段文字时，我不禁默默反思：好像确实是这样的呢。然后作者向我们抛了一个结论：虽然理性上你认为结果是
-运气+决策
-的，但在潜意识里，你认为的总是在0或者100%两个数之间进行选择。而要想提升决策水平，就得复盘自身决策。在复盘的时候，我们就要摆脱单纯的结果导向。当然，结果对于我们的复盘当然不是毫无作用的，只是说，我们不能100%受到结果的影响。</p>
+<p>结果导向则告诉我们我们对于一个决策的判断，往往基于其结果，这其实是不对的。作者让我们回想我们认为的过去一年做的最好的决策和最坏的决策，然后让我们扪心自问，自己挑选出来的最好的决策结果是否是成功的，最坏的决策结果是否是失败的。说实话，在看到这一段文字时，我不禁默默反思：好像确实是这样的呢。然后作者向我们抛了一个结论：虽然理性上你认为结果是 运气+决策 的，但在潜意识里，你认为的总是在0或者100%两个数之间进行选择。而要想提升决策水平，就得复盘自身决策。在复盘的时候，我们就要摆脱单纯的结果导向。当然，结果对于我们的复盘当然不是毫无作用的，只是说，我们不能100%受到结果的影响。</p>
 <p>自利性偏差则是揭示了一个”劣根性“：我们往往把失败的因素归于运气，而把成功的因素归于自己，也就是所谓的”甩锅“心理。这个心理是最显而易见的，但却又是最难克服的。</p>
 <p>以上是序章的阅读笔记。</p>
 
@@ -476,7 +476,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">870字</span>
+        <span class="post-count">900字</span>
       </span>
     </span>
 
@@ -495,103 +495,56 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="特殊关系">特殊关系</h1>
-<h2 id="相容关系">相容关系</h2>
-<h3 id="定义">定义</h3>
-<p>同时满足自反性和对称性的关系</p>
-<h3 id="集合的覆盖">集合的覆盖</h3>
-<p>几个集合A的子集,且这些子集的并集为A,所构成的集合叫做集合的一个覆盖</p>
-<h2 id="等价关系">等价关系</h2>
-<h4 id="定义-1">定义</h4>
-<p>满足传递性的相容关系</p>
-<h4 id="集合的划分">集合的划分</h4>
-<p>如果集合的覆盖中的集合之间交集为空,则称为集合的一个划分</p>
-<h4 id="等价类与商集">等价类与商集</h4>
-<h5 id="定义-2">定义</h5>
-<p>A上存在等价关系R</p>
+        <h1 id="特殊关系"><a href="#特殊关系" class="headerlink" title="特殊关系"></a>特殊关系</h1><h2 id="相容关系"><a href="#相容关系" class="headerlink" title="相容关系"></a>相容关系</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>同时满足自反性和对称性的关系</p>
+<h3 id="集合的覆盖"><a href="#集合的覆盖" class="headerlink" title="集合的覆盖"></a>集合的覆盖</h3><p>几个集合A的子集,且这些子集的并集为A,所构成的集合叫做集合的一个覆盖</p>
+<h2 id="等价关系"><a href="#等价关系" class="headerlink" title="等价关系"></a>等价关系</h2><h4 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h4><p>满足传递性的相容关系</p>
+<h4 id="集合的划分"><a href="#集合的划分" class="headerlink" title="集合的划分"></a>集合的划分</h4><p>如果集合的覆盖中的集合之间交集为空,则称为集合的一个划分</p>
+<h4 id="等价类与商集"><a href="#等价类与商集" class="headerlink" title="等价类与商集"></a>等价类与商集</h4><h5 id="定义-2"><a href="#定义-2" class="headerlink" title="定义"></a>定义</h5><p>A上存在等价关系R</p>
 <p>把A中所有以x为第一元素的序偶的第二元素构成集合</p>
-<p>这个集合就是<span
-class="math inline">\([x]_R\)</span>,即<strong>等价类</strong></p>
+<p>这个集合就是$[x]_R$,即<strong>等价类</strong></p>
 <p>其中的x称为<strong>生成元</strong></p>
-<h5 id="性质">性质</h5>
-<ol type="1">
-<li><p>任一元素的等价集不空</p></li>
-<li><p>如果 <span class="math inline">\(y\notin [x]_R\)</span> <span
-class="math inline">\([x]_R \cap [y]_R = \emptyset\)</span></p>
-<p>如果$y_R $ <span class="math inline">\([x]_R=[y]_R\)</span></p></li>
-<li><p>所有<span class="math inline">\(x\in
-A\)</span>的等价类的并集为A</p></li>
+<h5 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h5><ol>
+<li><p>任一元素的等价集不空</p>
+</li>
+<li><p>如果 $y\notin [x]_R$  $[x]_R \cap [y]_R &#x3D; \emptyset$</p>
+<p>如果$y\in [x]_R $	$[x]_R&#x3D;[y]_R$</p>
+</li>
+<li><p>所有$x\in A$的等价类的并集为A</p>
+</li>
 </ol>
-<h5 id="商集">商集</h5>
-<p>所有等价类构成的集合称为<strong>商集</strong></p>
-<h5 id="划分与商集">划分与商集</h5>
-<p>A对R的商集是对A的一个划分,称此划分为<strong>等价划分</strong></p>
-<h2 id="次序关系">次序关系</h2>
-<h3 id="拟序关系">拟序关系</h3>
-<h4 id="定义-3">定义</h4>
-<p>如果一个关系是反自反性,反对称性,传递性,则称该关系为<strong>拟序关系</strong>,记为a&lt;b</p>
-<p>序偶 &lt; A,&lt; &gt; 称为<strong>拟序集</strong></p>
-<h3 id="偏序关系">偏序关系</h3>
-<p>如果一个关系是自反性,反对称性,传递性,则称该关系为<strong>偏序关系</strong>,记为a<span
-class="math inline">\(\le\)</span>b</p>
-<p>序偶 &lt;A,<span class="math inline">\(\le\)</span>&gt;
-称为<strong>偏序集</strong></p>
+<h5 id="商集"><a href="#商集" class="headerlink" title="商集"></a>商集</h5><p>所有等价类构成的集合称为<strong>商集</strong></p>
+<h5 id="划分与商集"><a href="#划分与商集" class="headerlink" title="划分与商集"></a>划分与商集</h5><p>A对R的商集是对A的一个划分,称此划分为<strong>等价划分</strong></p>
+<h2 id="次序关系"><a href="#次序关系" class="headerlink" title="次序关系"></a>次序关系</h2><h3 id="拟序关系"><a href="#拟序关系" class="headerlink" title="拟序关系"></a>拟序关系</h3><h4 id="定义-3"><a href="#定义-3" class="headerlink" title="定义"></a>定义</h4><p>如果一个关系是反自反性,反对称性,传递性,则称该关系为<strong>拟序关系</strong>,记为a&lt;b</p>
+<p>序偶	&lt; A,&lt; &gt; 	称为<strong>拟序集</strong></p>
+<h3 id="偏序关系"><a href="#偏序关系" class="headerlink" title="偏序关系"></a>偏序关系</h3><p>如果一个关系是自反性,反对称性,传递性,则称该关系为<strong>偏序关系</strong>,记为a$\le$b</p>
+<p>序偶	&lt;A,$\le$&gt;	称为<strong>偏序集</strong></p>
 <p>我们可以把关系图简化成<strong>哈斯图</strong></p>
 <p>我们从偏序关系中可以找到<strong>最大元</strong>,<strong>最小元</strong>,<strong>上界</strong>,<strong>下界</strong>,<strong>极大值</strong>,<strong>极小值</strong></p>
 <blockquote>
-<p>极大元：没有比元素b更“大”的元素，则称b为极大元。 换句话说，B中 局部
-最大的元素就是极大元。 极小元：没有比元素b更“小”的元素，则称b为极小元。
-换句话说，B中 局部 最小的元素就是极小元。 有限集必存在极大元和极小元
-最大元：如果极大元只有一个，它就是最大元，否则没有最大元。
-换句话说，B中最大的元素就是最大元。
-最小元：如果极大元只有一个，它就是最大元，否则没有最大元。
-换句话说，B中最大的元素就是最大元。 最大元和最小元存在必唯一</p>
+<p>极大元：没有比元素b更“大”的元素，则称b为极大元。<br>换句话说，B中 局部 最大的元素就是极大元。<br>极小元：没有比元素b更“小”的元素，则称b为极小元。<br>换句话说，B中 局部 最小的元素就是极小元。<br>有限集必存在极大元和极小元<br>最大元：如果极大元只有一个，它就是最大元，否则没有最大元。<br>换句话说，B中最大的元素就是最大元。<br>最小元：如果极大元只有一个，它就是最大元，否则没有最大元。<br>换句话说，B中最大的元素就是最大元。<br>最大元和最小元存在必唯一</p>
 </blockquote>
-<p>设&lt;A, <span
-class="math inline">\(\leq\)</span>&gt;是偏序集合，<span
-class="math inline">\(B\subset A\)</span>，<span
-class="math inline">\(a∈A\)</span>。</p>
+<p>设&lt;A, $\leq$&gt;是偏序集合，$B\subset A$，$a∈A$。</p>
 <blockquote>
-<p>上界：比B中元素均“大”的元素称为B的上界。
-下界：比B中元素均“小”的元素称为B的下界。 上确界：
-B的所有上界中的最小元为其最小上界。
-下确界：B的所有下界中的最大元为其最大下界</p>
+<p>上界：比B中元素均“大”的元素称为B的上界。<br>下界：比B中元素均“小”的元素称为B的下界。<br>上确界： B的所有上界中的最小元为其最小上界。<br>下确界：B的所有下界中的最大元为其最大下界</p>
 </blockquote>
-<h3 id="良序关系">良序关系</h3>
-<p>如果任一非空子集都有最小元的偏序集称为<strong>良序集</strong></p>
-<h2 id="函数">函数</h2>
-<h3 id="定义-4">定义</h3>
-<p>对于每个<span class="math inline">\(x\in A\)</span>, 都有唯一的 $ yB
-$ 与之对应</p>
+<h3 id="良序关系"><a href="#良序关系" class="headerlink" title="良序关系"></a>良序关系</h3><p>如果任一非空子集都有最小元的偏序集称为<strong>良序集</strong></p>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><h3 id="定义-4"><a href="#定义-4" class="headerlink" title="定义"></a>定义</h3><p>对于每个$x\in A$, 都有唯一的 $ y\in B $ 与之对应</p>
 <ul>
 <li>关系和函数的数量不同</li>
 <li>关系和函数的基数不同</li>
 <li>关系和函数的第一元素要求不同</li>
 </ul>
-<h3 id="特殊函数">特殊函数</h3>
-<ul>
-<li><span class="math inline">\(f(x)=x\)</span>
-称为<strong>恒等函数</strong></li>
-<li><span class="math inline">\(f(x) = b\)</span>
-称为<strong>常值函数</strong></li>
-<li>$f(x)=1 (x U) $ or <span class="math inline">\(f(x) = 0(x\notin
-U)\)</span> 称为<strong>特征函数</strong></li>
+<h3 id="特殊函数"><a href="#特殊函数" class="headerlink" title="特殊函数"></a>特殊函数</h3><ul>
+<li>$f(x)&#x3D;x$ 称为<strong>恒等函数</strong></li>
+<li>$f(x) &#x3D; b$ 称为<strong>常值函数</strong></li>
+<li>$f(x)&#x3D;1 (x \in U) $ or $f(x) &#x3D; 0(x\notin U)$  称为<strong>特征函数</strong></li>
 <li><strong>上取整函数</strong>和<strong>下取整函数</strong></li>
 <li><strong>布尔函数</strong></li>
-<li><strong>Sigmoid函数</strong> <span
-class="math inline">\(\sigma(x)=\frac{1}{1+e^{-x}}\)</span> $A=R $ <span
-class="math inline">\(B=(0,1)\)</span></li>
-<li><strong>tanh函数</strong> $ tanh(x) = $ <span
-class="math inline">\(A=R\)</span> <span
-class="math inline">\(B=(-1,1)\)</span></li>
-<li><strong>tanh函数</strong> <span
-class="math inline">\(tanh(x)=max(0,x)\)</span><span
-class="math inline">\(A=R\)</span> <span
-class="math inline">\(B=[0,\infty)\)</span></li>
+<li><strong>Sigmoid函数</strong> $\sigma(x)&#x3D;\frac{1}{1+e^{-x}}$ $A&#x3D;R $  $B&#x3D;(0,1)$</li>
+<li><strong>tanh函数</strong>      $ tanh(x) &#x3D; \frac{e^x-e^{-x}}{e^x+e^{-x}}$ $A&#x3D;R$ $B&#x3D;(-1,1)$</li>
+<li><strong>tanh函数</strong>   $tanh(x)&#x3D;max(0,x)$$A&#x3D;R$ $B&#x3D;[0,\infty)$</li>
 </ul>
-<h3 id="置换函数">置换函数</h3>
-<p><span class="math inline">\(A\rightarrow A\)</span>上的函数<span
-class="math inline">\(f(x)\)</span>称为<strong>函数的置换</strong></p>
+<h3 id="置换函数"><a href="#置换函数" class="headerlink" title="置换函数"></a>置换函数</h3><p>$A\rightarrow A$上的函数$f(x)$称为<strong>函数的置换</strong></p>
 
       
 
@@ -667,7 +620,7 @@ class="math inline">\(f(x)\)</span>称为<strong>函数的置换</strong></p>
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">130字</span>
+        <span class="post-count">133字</span>
       </span>
     </span>
 
@@ -686,20 +639,20 @@ class="math inline">\(f(x)\)</span>称为<strong>函数的置换</strong></p>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="记录一些markdown语法以便查看">记录一些markdown语法,以便查看</h1>
-<h2 id="分割线">分割线</h2>
-<p>连续的三个减号或者星号会被渲染成分割线</p>
-<hr />
+        <h1 id="记录一些markdown语法-以便查看"><a href="#记录一些markdown语法-以便查看" class="headerlink" title="记录一些markdown语法,以便查看"></a>记录一些markdown语法,以便查看</h1><h2 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h2><p>连续的三个减号或者星号会被渲染成分割线</p>
+<hr>
 <p>上面是 *** 分割线的实例</p>
-<hr />
-<p>上面是 --- 分割线的实例</p>
-<h2 id="mermaid-语法">mermaid 语法</h2>
-<p>用```mermaid 调用流程图</p>
+<hr>
+<p>上面是 — 分割线的实例</p>
+<h2 id="mermaid-语法"><a href="#mermaid-语法" class="headerlink" title="mermaid 语法"></a>mermaid 语法</h2><p>用&#96;&#96;&#96;mermaid 调用流程图</p>
 <p>graph 声明流程图</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">TB - <span class="attribute">top</span> <span class="selector-tag">to</span> <span class="attribute">bottom</span></span><br><span class="line"><span class="selector-tag">TD</span> - <span class="attribute">top</span>-down/ same as <span class="attribute">top</span> <span class="selector-tag">to</span> <span class="attribute">bottom</span></span><br><span class="line">BT - <span class="attribute">bottom</span> <span class="selector-tag">to</span> <span class="attribute">top</span></span><br><span class="line">RL - <span class="attribute">right</span> <span class="selector-tag">to</span> <span class="attribute">left</span></span><br><span class="line">LR - <span class="attribute">left</span> <span class="selector-tag">to</span> <span class="attribute">right</span></span><br></pre></td></tr></table></figure>
+
 <p>上述来声明方向</p>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">A</span><br><span class="line">B<span class="selector-attr">[bname]</span></span><br><span class="line"><span class="function"><span class="title">C</span><span class="params">(cname)</span></span></span><br><span class="line"><span class="function"><span class="title">D</span><span class="params">((dname)</span></span>)</span><br><span class="line">E&gt;ename]</span><br><span class="line">F&#123;fname&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">graph TB</span><br><span class="line">    A</span><br><span class="line">    B[bname]</span><br><span class="line">    C(cname)</span><br><span class="line">    D((dname))</span><br><span class="line">    E&gt;ename]</span><br><span class="line">    F&#123;fname&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p>上述来声明形状</p>
 
       
@@ -795,120 +748,96 @@ class="math inline">\(f(x)\)</span>称为<strong>函数的置换</strong></p>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="数据结构-树">数据结构-树</h1>
-<p>本文参考李春葆的《数据结构教程》系列，是了解树过程中的笔记.</p>
-<h2 id="树的基本概念">树的基本概念</h2>
-<h3 id="定义">定义</h3>
-<p>n=0时，是一棵空树，是树的特例.</p>
-<p>n&gt;1 时,
-这n个节点里有且仅有一个<strong>根节点</strong>,简称<strong>根</strong></p>
+        <h1 id="数据结构-树"><a href="#数据结构-树" class="headerlink" title="数据结构-树"></a>数据结构-树</h1><p>本文参考李春葆的《数据结构教程》系列，是了解树过程中的笔记.</p>
+<h2 id="树的基本概念"><a href="#树的基本概念" class="headerlink" title="树的基本概念"></a>树的基本概念</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>n&#x3D;0时，是一棵空树，是树的特例.</p>
+<p>n&gt;1 时,  这n个节点里有且仅有一个<strong>根节点</strong>,简称<strong>根</strong></p>
 <p>其余节点可以分成m个互不相交的有限集,每一个有限集又满足树的定义,称为<strong>子树</strong></p>
 <p>树的抽象数据类型为</p>
-<hr />
+<hr>
 <ul>
 <li>数据类型 elemtype</li>
 <li>数据关系 本节点 , 后继节点 , 前驱节点</li>
-<li>基本运算
-<ul>
+<li>基本运算<ul>
 <li>InitTree(&amp;t) 初始化树</li>
 <li>DestoryTree(&amp;t) 销毁树</li>
 <li>TreeHeight(t) 求树 t 的高度</li>
 <li>Parent(t,p) 求树 t 中 节点p 的 双亲节点</li>
-<li>Bother(t,p) 求树 t 中 节点p 的 兄弟节点</li>
+<li>Bother(t,p)  求树 t 中 节点p 的 兄弟节点</li>
 <li>Sons(t,p) 求树 t 中 节点p 的 子孙节点</li>
-</ul></li>
 </ul>
-<hr />
-<h3 id="逻辑表达方法">逻辑表达方法</h3>
-<h4 id="树形表达法">树形表达法</h4>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">graph TD</span><br><span class="line">A((A))--&gt;B((B))</span><br><span class="line">A--&gt;C((C))</span><br><span class="line">A--&gt;D((D))</span><br><span class="line">B--&gt;E((E))</span><br><span class="line">B--&gt;F((F))</span><br><span class="line">C--&gt;G((G))</span><br><span class="line">G--&gt;J((J))</span><br><span class="line">D--&gt;H((H))</span><br><span class="line">D--&gt;I((I))</span><br><span class="line">I--&gt;K((K))</span><br><span class="line">I--&gt;L((L))</span><br><span class="line">I--&gt;M((M))</span><br></pre></td></tr></table></figure>
-<h4 id="文式图表示法">文式图表示法</h4>
-<p>用包含关系来表示节点之间的关系</p>
-<h4 id="凹入表示法">凹入表示法</h4>
-<p>子树较短,树根在上</p>
-<h4 id="括号表示法">括号表示法</h4>
-<p>用括号包含关系来表示节点之间的关系</p>
-<h3 id="基本术语">基本术语</h3>
-<h4 id="节点的度">节点的度</h4>
-<p>子树的数量</p>
-<h4 id="树的度">树的度</h4>
-<p>节点的度中的最大值(度为m的树称为m次树)</p>
-<h4 id="分支节点与叶子节点">分支节点与叶子节点</h4>
-<p>度不为0的节点叫<strong>分支节点</strong></p>
+</li>
+</ul>
+<hr>
+<h3 id="逻辑表达方法"><a href="#逻辑表达方法" class="headerlink" title="逻辑表达方法"></a>逻辑表达方法</h3><h4 id="树形表达法"><a href="#树形表达法" class="headerlink" title="树形表达法"></a>树形表达法</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">graph TD</span><br><span class="line">A((A))--&gt;B((B))</span><br><span class="line">A--&gt;C((C))</span><br><span class="line">A--&gt;D((D))</span><br><span class="line">B--&gt;E((E))</span><br><span class="line">B--&gt;F((F))</span><br><span class="line">C--&gt;G((G))</span><br><span class="line">G--&gt;J((J))</span><br><span class="line">D--&gt;H((H))</span><br><span class="line">D--&gt;I((I))</span><br><span class="line">I--&gt;K((K))</span><br><span class="line">I--&gt;L((L))</span><br><span class="line">I--&gt;M((M))</span><br></pre></td></tr></table></figure>
+
+<h4 id="文式图表示法"><a href="#文式图表示法" class="headerlink" title="文式图表示法"></a>文式图表示法</h4><p>用包含关系来表示节点之间的关系</p>
+<h4 id="凹入表示法"><a href="#凹入表示法" class="headerlink" title="凹入表示法"></a>凹入表示法</h4><p>子树较短,树根在上</p>
+<h4 id="括号表示法"><a href="#括号表示法" class="headerlink" title="括号表示法"></a>括号表示法</h4><p>用括号包含关系来表示节点之间的关系</p>
+<h3 id="基本术语"><a href="#基本术语" class="headerlink" title="基本术语"></a>基本术语</h3><h4 id="节点的度"><a href="#节点的度" class="headerlink" title="节点的度"></a>节点的度</h4><p>子树的数量</p>
+<h4 id="树的度"><a href="#树的度" class="headerlink" title="树的度"></a>树的度</h4><p>节点的度中的最大值(度为m的树称为m次树)</p>
+<h4 id="分支节点与叶子节点"><a href="#分支节点与叶子节点" class="headerlink" title="分支节点与叶子节点"></a>分支节点与叶子节点</h4><p>度不为0的节点叫<strong>分支节点</strong></p>
 <p>度为0的节点叫<strong>叶子节点</strong></p>
-<h4 id="路径和路径节点">路径和路径节点</h4>
-<p>两个结点d_i和d_j的结点序列<span class="math inline">\(（d_i，d_{i1}，
-d_{i2}，…，d_j）\)</span>称为<strong>路径</strong>。其中 <span
-class="math inline">\(&lt;d _x，d_y&gt;\)</span>是分支。</p>
+<h4 id="路径和路径节点"><a href="#路径和路径节点" class="headerlink" title="路径和路径节点"></a>路径和路径节点</h4><p>两个结点d_i和d_j的结点序列$（d_i，d_{i1}， d_{i2}，…，d_j）$称为<strong>路径</strong>。其中 $&lt;d _x，d_y&gt;$是分支。</p>
 <p><strong>路径长度</strong>等于路径所通过的结点数目减1（即路径上分支数目）</p>
-<h4 id="孩子节点双亲节点兄弟节点">孩子节点,双亲节点,兄弟节点</h4>
-<p>在一棵树中，每个结点的直接后继，被称作该结点的<strong>孩子结点</strong>（或子女结点）。</p>
+<h4 id="孩子节点-双亲节点-兄弟节点"><a href="#孩子节点-双亲节点-兄弟节点" class="headerlink" title="孩子节点,双亲节点,兄弟节点"></a>孩子节点,双亲节点,兄弟节点</h4><p>在一棵树中，每个结点的直接后继，被称作该结点的<strong>孩子结点</strong>（或子女结点）。</p>
 <p>相应地，该结点被称作孩子结点的<strong>双亲结点</strong>（或<strong>父母结点</strong>）</p>
 <p>具有同一<strong>双亲节点</strong>的节点叫做<strong>兄弟节点</strong></p>
-<h4 id="树的层次和树的高度">树的层次和树的高度</h4>
-<p>树中的每个结点都处在一个层次上。结点的层次从树根开始定义，根结点为第1层，它的孩子结点为第2层，以此类推，一个结点所在的层次为其双亲结点所在的层次加1。</p>
+<h4 id="树的层次和树的高度"><a href="#树的层次和树的高度" class="headerlink" title="树的层次和树的高度"></a>树的层次和树的高度</h4><p>树中的每个结点都处在一个层次上。结点的层次从树根开始定义，根结点为第1层，它的孩子结点为第2层，以此类推，一个结点所在的层次为其双亲结点所在的层次加1。 </p>
 <p>树中结点的最大层次称为树的<strong>高度</strong></p>
-<h4 id="有序树和无序树">有序树和无序树</h4>
-<p>若树中各结点的<strong>子树</strong>是按照一定的次序从左向右安排的，且相对次序是不能随意变换的，则称为<strong>有序树</strong>，否则称为<strong>无序树</strong>。</p>
-<h4 id="森林">森林</h4>
-<p><em>n</em>（<em>n</em>＞0）个互不相交的树的集合称为<strong>森林</strong>。只要把树的<strong>根结点</strong>删去就成了森林。</p>
-<h3 id="性质">性质</h3>
-<ul>
-<li><p>树的节点数等于所有节点的度数加1</p></li>
-<li><p>度为m的树中第i层最多有 <span
-class="math inline">\(m^{i-1}\)</span>个节点</p></li>
-<li><p>高度为h的m次树最多有 $ $个节点</p></li>
-<li><p>那么可以用对数表示最小高度</p></li>
+<h4 id="有序树和无序树"><a href="#有序树和无序树" class="headerlink" title="有序树和无序树"></a>有序树和无序树</h4><p>若树中各结点的<strong>子树</strong>是按照一定的次序从左向右安排的，且相对次序是不能随意变换的，则称为<strong>有序树</strong>，否则称为<strong>无序树</strong>。</p>
+<h4 id="森林"><a href="#森林" class="headerlink" title="森林"></a>森林</h4><p><em>n</em>（<em>n</em>＞0）个互不相交的树的集合称为<strong>森林</strong>。只要把树的<strong>根结点</strong>删去就成了森林。</p>
+<h3 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h3><ul>
+<li><p>树的节点数等于所有节点的度数加1</p>
+</li>
+<li><p>度为m的树中第i层最多有 $m^{i-1}$个节点</p>
+</li>
+<li><p>高度为h的m次树最多有 $ \frac{m^h-1}{m-1}$个节点</p>
+</li>
+<li><p>那么可以用对数表示最小高度</p>
+</li>
 </ul>
-<h3 id="基本遍历">基本遍历</h3>
-<h4 id="先序遍历">先序遍历</h4>
-<ol type="1">
-<li><p>访问根节点</p></li>
-<li><p>按照从左到右顺序遍历子树</p></li>
+<h3 id="基本遍历"><a href="#基本遍历" class="headerlink" title="基本遍历"></a>基本遍历</h3><h4 id="先序遍历"><a href="#先序遍历" class="headerlink" title="先序遍历"></a>先序遍历</h4><ol>
+<li><p>访问根节点</p>
+</li>
+<li><p>按照从左到右顺序遍历子树</p>
+</li>
 </ol>
-<h4 id="后序遍历">后序遍历</h4>
-<ol type="1">
-<li><p>按照从左到右顺序遍历子树</p></li>
-<li><p>访问根节点</p></li>
+<h4 id="后序遍历"><a href="#后序遍历" class="headerlink" title="后序遍历"></a>后序遍历</h4><ol>
+<li><p>按照从左到右顺序遍历子树</p>
+</li>
+<li><p>访问根节点</p>
+</li>
 </ol>
-<h4 id="层次遍历">层次遍历</h4>
-<p>从根节点开始从上往下,从左到右的次序访问树中的每一个节点</p>
-<h3 id="树的储存结构">树的储存结构</h3>
-<h4 id="双亲储存结构">双亲储存结构</h4>
-<p>结构体内存放双亲位置和节点的值</p>
-<h4 id="子链储存结构">子链储存结构</h4>
-<p>结构体内存放孩子节点和节点的值</p>
-<h4 id="孩子兄弟链储存结构">孩子兄弟链储存结构</h4>
-<p>结构体内存放孩子节点的指针,兄弟节点的指针和节点的值</p>
-<h2 id="二叉树binary-tree">二叉树(Binary tree)</h2>
-<h3 id="定义-1"><strong>定义</strong></h3>
-<p>​ 我们把满足以下两个条件的树型结构叫做<strong>二叉树</strong></p>
-<ol type="1">
-<li><p>每个结点的<strong>度</strong>都<strong>不大于</strong>2；</p></li>
-<li><p>每个结点的孩子结点<strong>次序</strong>不能任意颠倒。</p></li>
+<h4 id="层次遍历"><a href="#层次遍历" class="headerlink" title="层次遍历"></a>层次遍历</h4><p>从根节点开始从上往下,从左到右的次序访问树中的每一个节点</p>
+<h3 id="树的储存结构"><a href="#树的储存结构" class="headerlink" title="树的储存结构"></a>树的储存结构</h3><h4 id="双亲储存结构"><a href="#双亲储存结构" class="headerlink" title="双亲储存结构"></a>双亲储存结构</h4><p>结构体内存放双亲位置和节点的值</p>
+<h4 id="子链储存结构"><a href="#子链储存结构" class="headerlink" title="子链储存结构"></a>子链储存结构</h4><p>结构体内存放孩子节点和节点的值</p>
+<h4 id="孩子兄弟链储存结构"><a href="#孩子兄弟链储存结构" class="headerlink" title="孩子兄弟链储存结构"></a>孩子兄弟链储存结构</h4><p>结构体内存放孩子节点的指针,兄弟节点的指针和节点的值</p>
+<h2 id="二叉树-Binary-tree"><a href="#二叉树-Binary-tree" class="headerlink" title="二叉树(Binary tree)"></a>二叉树(Binary tree)</h2><h3 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a><strong>定义</strong></h3><p>​	我们把满足以下两个条件的树型结构叫做<strong>二叉树</strong></p>
+<ol>
+<li><p>每个结点的<strong>度</strong>都<strong>不大于</strong>2； </p>
+</li>
+<li><p>每个结点的孩子结点<strong>次序</strong>不能任意颠倒。</p>
+</li>
 </ol>
-<p>​ <strong>递归定义</strong>：二叉树是有限的结点集合：</p>
-<ol type="1">
-<li><p>这个集合或者是空。</p></li>
-<li><p>或者由一个根结点和两棵互不相交的称为<strong>左子树</strong>和<strong>右子树</strong>的二叉树组成</p></li>
+<p>​	<strong>递归定义</strong>：二叉树是有限的结点集合：</p>
+<ol>
+<li><p>这个集合或者是空。 </p>
+</li>
+<li><p>或者由一个根结点和两棵互不相交的称为<strong>左子树</strong>和<strong>右子树</strong>的二叉树组成</p>
+</li>
 </ol>
-<h3 id="储存结构">储存结构</h3>
-<h4 id="顺式储存结构">顺式储存结构</h4>
-<p>按层次顺序储存</p>
-<h4 id="链式储存结构">链式储存结构</h4>
-<p>包含值,左孩子节点,右孩子节点</p>
-<h3 id="遍历">遍历</h3>
-<h4 id="先序遍历-1">先序遍历</h4>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">PreOrder</span><span class="params">(BiTree root)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(root!=<span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%c&quot;</span>,root-&gt;data);</span><br><span class="line">        PreOrder(root-&gt;left);</span><br><span class="line">        PreOrder(root-&gt;right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="中序遍历">中序遍历</h4>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 中序遍历</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">InOrder</span><span class="params">(BiTree root)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (root != <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        InOrder(root-&gt;left);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%c &quot;</span>, root-&gt;data); <span class="comment">//访问根结点</span></span><br><span class="line">        InOrder(root-&gt;right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="后序遍历-1">后序遍历</h4>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 后序遍历</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">PostOrder</span><span class="params">(BiTree root)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (root != <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        PostOrder(root-&gt;left);</span><br><span class="line">        PostOrder(root-&gt;right);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%c &quot;</span>, root-&gt;data);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="哈夫曼树">哈夫曼树</h3>
-<p>设二叉树有<code>n0</code>个带权值的叶子界点，那么从根节点到各个叶节点的路径长度与相应结点权值的乘积的和，叫做二叉树的<strong>带权路径长度</strong></p>
+<h3 id="储存结构"><a href="#储存结构" class="headerlink" title="储存结构"></a>储存结构</h3><h4 id="顺式储存结构"><a href="#顺式储存结构" class="headerlink" title="顺式储存结构"></a>顺式储存结构</h4><p>按层次顺序储存</p>
+<h4 id="链式储存结构"><a href="#链式储存结构" class="headerlink" title="链式储存结构"></a>链式储存结构</h4><p>包含值,左孩子节点,右孩子节点</p>
+<h3 id="遍历"><a href="#遍历" class="headerlink" title="遍历"></a>遍历</h3><h4 id="先序遍历-1"><a href="#先序遍历-1" class="headerlink" title="先序遍历"></a>先序遍历</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">PreOrder</span><span class="params">(BiTree root)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(root!=<span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%c&quot;</span>,root-&gt;data);</span><br><span class="line">        PreOrder(root-&gt;left);</span><br><span class="line">        PreOrder(root-&gt;right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="中序遍历"><a href="#中序遍历" class="headerlink" title="中序遍历"></a>中序遍历</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 中序遍历</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">InOrder</span><span class="params">(BiTree root)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (root != <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        InOrder(root-&gt;left);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%c &quot;</span>, root-&gt;data); <span class="comment">//访问根结点</span></span><br><span class="line">        InOrder(root-&gt;right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="后序遍历-1"><a href="#后序遍历-1" class="headerlink" title="后序遍历"></a>后序遍历</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 后序遍历</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">PostOrder</span><span class="params">(BiTree root)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (root != <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        PostOrder(root-&gt;left);</span><br><span class="line">        PostOrder(root-&gt;right);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%c &quot;</span>, root-&gt;data);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="哈夫曼树"><a href="#哈夫曼树" class="headerlink" title="哈夫曼树"></a>哈夫曼树</h3><p>设二叉树有<code>n0</code>个带权值的叶子界点，那么从根节点到各个叶节点的路径长度与相应结点权值的乘积的和，叫做二叉树的<strong>带权路径长度</strong></p>
 <p>具有最小带权路径长度的<strong>二叉树</strong>叫做<strong>哈夫曼树</strong></p>
-<h4 id="构造">构造</h4>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">CreateHT</span><span class="params">(BiTNode ht[], <span class="type">int</span> n0)</span> <span class="comment">//构造哈夫曼树</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> i, k, lnode, rnode;</span><br><span class="line">    <span class="type">double</span> min1, min2;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">2</span> * n0 - <span class="number">1</span>; i++)</span><br><span class="line">        ht[i].parent = ht[i].lchild = ht[i].rchild = <span class="number">-1</span>; <span class="comment">//所有节点的域置初值-1</span></span><br><span class="line">    <span class="keyword">for</span> (i = n0; i &lt;= <span class="number">2</span> * n0 - <span class="number">2</span>; i++)                   <span class="comment">//构造哈夫曼树的n0-1个节点</span></span><br><span class="line">    &#123;</span><br><span class="line">        min1 = min2 = <span class="number">32767</span>; <span class="comment">// lnode和rnode为最小权重的两个节点位置</span></span><br><span class="line">        lnode = rnode = <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">for</span> (k = <span class="number">0</span>; k &lt;= i - <span class="number">1</span>; k++) <span class="comment">//在ht[0..i-1]中找权值最小的两个节点</span></span><br><span class="line">            <span class="keyword">if</span> (ht[k].parent == <span class="number">-1</span>)  <span class="comment">//只在尚未构造二叉树的节点中查找</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (ht[k].weight &lt; min1)</span><br><span class="line">                &#123;</span><br><span class="line">                    min2 = min1;</span><br><span class="line">                    rnode = lnode;</span><br><span class="line">                    min1 = ht[k].weight;</span><br><span class="line">                    lnode = k;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (ht[k].weight &lt; min2)</span><br><span class="line">                &#123;</span><br><span class="line">                    min2 = ht[k].weight;</span><br><span class="line">                    rnode = k;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        ht[i].weight = ht[lnode].weight + ht[rnode].weight;</span><br><span class="line">        ht[i].lchild = lnode;</span><br><span class="line">        ht[i].rchild = rnode; <span class="comment">// ht[i]作为双亲节点</span></span><br><span class="line">        ht[lnode].parent = i;</span><br><span class="line">        ht[rnode].parent = i;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="构造"><a href="#构造" class="headerlink" title="构造"></a>构造</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">CreateHT</span><span class="params">(BiTNode ht[], <span class="type">int</span> n0)</span> <span class="comment">//构造哈夫曼树</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> i, k, lnode, rnode;</span><br><span class="line">    <span class="type">double</span> min1, min2;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">2</span> * n0 - <span class="number">1</span>; i++)</span><br><span class="line">        ht[i].parent = ht[i].lchild = ht[i].rchild = <span class="number">-1</span>; <span class="comment">//所有节点的域置初值-1</span></span><br><span class="line">    <span class="keyword">for</span> (i = n0; i &lt;= <span class="number">2</span> * n0 - <span class="number">2</span>; i++)                   <span class="comment">//构造哈夫曼树的n0-1个节点</span></span><br><span class="line">    &#123;</span><br><span class="line">        min1 = min2 = <span class="number">32767</span>; <span class="comment">// lnode和rnode为最小权重的两个节点位置</span></span><br><span class="line">        lnode = rnode = <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">for</span> (k = <span class="number">0</span>; k &lt;= i - <span class="number">1</span>; k++) <span class="comment">//在ht[0..i-1]中找权值最小的两个节点</span></span><br><span class="line">            <span class="keyword">if</span> (ht[k].parent == <span class="number">-1</span>)  <span class="comment">//只在尚未构造二叉树的节点中查找</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (ht[k].weight &lt; min1)</span><br><span class="line">                &#123;</span><br><span class="line">                    min2 = min1;</span><br><span class="line">                    rnode = lnode;</span><br><span class="line">                    min1 = ht[k].weight;</span><br><span class="line">                    lnode = k;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (ht[k].weight &lt; min2)</span><br><span class="line">                &#123;</span><br><span class="line">                    min2 = ht[k].weight;</span><br><span class="line">                    rnode = k;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        ht[i].weight = ht[lnode].weight + ht[rnode].weight;</span><br><span class="line">        ht[i].lchild = lnode;</span><br><span class="line">        ht[i].rchild = rnode; <span class="comment">// ht[i]作为双亲节点</span></span><br><span class="line">        ht[lnode].parent = i;</span><br><span class="line">        ht[rnode].parent = i;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
       
 
@@ -984,7 +913,7 @@ class="math inline">\(m^{i-1}\)</span>个节点</p></li>
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">769字</span>
+        <span class="post-count">772字</span>
       </span>
     </span>
 
@@ -1003,47 +932,42 @@ class="math inline">\(m^{i-1}\)</span>个节点</p></li>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1
-id="这篇文章记录了配置yilia主题的过程">这篇文章记录了配置yilia主题的过程</h1>
-<h2 id="安装yilia">安装yilia</h2>
-<ol type="1">
+        <h1 id="这篇文章记录了配置yilia主题的过程"><a href="#这篇文章记录了配置yilia主题的过程" class="headerlink" title="这篇文章记录了配置yilia主题的过程"></a>这篇文章记录了配置yilia主题的过程</h1><h2 id="安装yilia"><a href="#安装yilia" class="headerlink" title="安装yilia"></a>安装yilia</h2><ol>
 <li>在gitbash上输入</li>
 </ol>
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https:<span class="regexp">//gi</span>thub.com<span class="regexp">/litten/</span>hexo-theme-yilia.git themes/yilia</span><br></pre></td></tr></table></figure>
-<ol start="2" type="1">
-<li><p>修改 config.yml 中的 theme 属性为 yilia</p></li>
+
+<ol start="2">
+<li><p>修改 config.yml 中的 theme 属性为 yilia</p>
+</li>
 <li><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> themes/yilia</span><br><span class="line">git pull</span><br></pre></td></tr></table></figure></li>
 </ol>
 <p>执行完以上步骤就完成啦</p>
-<h2 id="yilia属性配置">Yilia属性配置</h2>
-<h3 id="设置头像">设置头像</h3>
-<p>在themes/yilia 中的source/img 放入图片</p>
+<h2 id="Yilia属性配置"><a href="#Yilia属性配置" class="headerlink" title="Yilia属性配置"></a>Yilia属性配置</h2><h3 id="设置头像"><a href="#设置头像" class="headerlink" title="设置头像"></a>设置头像</h3><p>在themes&#x2F;yilia 中的source&#x2F;img 放入图片</p>
 <p>然后将 avatar 属性设置为 路径</p>
-<h3 id="配置全局搜索">配置全局搜索</h3>
-<p>在根目录 用指令</p>
+<h3 id="配置全局搜索"><a href="#配置全局搜索" class="headerlink" title="配置全局搜索"></a>配置全局搜索</h3><p>在根目录 用指令</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="selector-tag">i</span> hexo-generator-json-<span class="attribute">content</span> <span class="attr">--save</span></span><br></pre></td></tr></table></figure>
+
 <p>在根目录 _config.yml加入</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">jsonContent</span>:</span><br><span class="line">  <span class="attr">meta</span>: <span class="literal">false</span></span><br><span class="line">  <span class="attr">pages</span>: <span class="literal">false</span></span><br><span class="line">  <span class="attr">posts</span>:</span><br><span class="line">    <span class="attr">title</span>: <span class="literal">true</span></span><br><span class="line">    <span class="attr">date</span>: <span class="literal">true</span></span><br><span class="line">    <span class="attr">path</span>: <span class="literal">true</span></span><br><span class="line">    <span class="attr">text</span>: <span class="literal">false</span></span><br><span class="line">    <span class="attr">raw</span>: <span class="literal">false</span></span><br><span class="line">    <span class="attr">content</span>: <span class="literal">false</span></span><br><span class="line">    <span class="attr">slug</span>: <span class="literal">false</span></span><br><span class="line">    <span class="attr">updated</span>: <span class="literal">false</span></span><br><span class="line">    <span class="attr">comments</span>: <span class="literal">false</span></span><br><span class="line">    <span class="attr">link</span>: <span class="literal">false</span></span><br><span class="line">    <span class="attr">permalink</span>: <span class="literal">false</span></span><br><span class="line">    <span class="attr">excerpt</span>: <span class="literal">false</span></span><br><span class="line">    <span class="attr">categories</span>: <span class="literal">false</span></span><br><span class="line">    <span class="attr">tags</span>: <span class="literal">true</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h3 id="增加时钟">增加时钟</h3>
-<p>在yilia/layout/_partial目录下的left-col.ejs文件中添加代码</p>
+
+<h3 id="增加时钟"><a href="#增加时钟" class="headerlink" title="增加时钟"></a>增加时钟</h3><p>在yilia&#x2F;layout&#x2F;_partial目录下的left-col.ejs文件中添加代码</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--时钟--&gt;</span><br><span class="line">&lt;br&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;position:absolute; bottom:120px left:auto; width:100%;height:50%&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.staticfile.org/vue/2.4.2/vue.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;clock&quot;</span> <span class="attr">style</span>=<span class="string">&quot;font-family: &#x27;Share Tech Mono&#x27;, monospace;color: #ffffff;text-align: center;position: absolute;left: 50%;top: 50%;-webkit-transform: translate(50%, 50%);transform: translate(-50%, -50%);color: #4B8CE1;text-shadow: 0 0 20px #0aafe6, 0 0 20px rgba(10, 175, 230, 0);&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      		<span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">&quot;margin: 0;padding: 0;letter-spacing: 0.1em;font-size: 15px;&quot;</span>&gt;</span>&#123;&#123; date &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      		<span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">&quot;margin: 0;padding: 0;letter-spacing: 0.01em;font-size: 38px;&quot;</span>&gt;</span>&#123;&#123; time &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">	<span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">		<span class="keyword">var</span> clock = <span class="keyword">new</span> <span class="title class_">Vue</span>(&#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">			<span class="attr">el</span>: <span class="string">&#x27;#clock&#x27;</span>,</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">			<span class="attr">data</span>: &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">				<span class="attr">time</span>: <span class="string">&#x27;&#x27;</span>,</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">				<span class="attr">date</span>: <span class="string">&#x27;&#x27;</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">			&#125;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">		&#125;);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">		<span class="keyword">var</span> week = [<span class="string">&#x27;星期天&#x27;</span>, <span class="string">&#x27;星期一&#x27;</span>, <span class="string">&#x27;星期二&#x27;</span>, <span class="string">&#x27;星期三&#x27;</span>, <span class="string">&#x27;星期四&#x27;</span>, <span class="string">&#x27;星期五&#x27;</span>, <span class="string">&#x27;星期六&#x27;</span>];</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">		<span class="keyword">var</span> timerID = <span class="built_in">setInterval</span>(updateTime, <span class="number">1000</span>);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">		<span class="title function_">updateTime</span>();</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">		<span class="keyword">function</span> <span class="title function_">updateTime</span>(<span class="params"></span>) &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">			<span class="keyword">var</span> cd = <span class="keyword">new</span> <span class="title class_">Date</span>();</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">			clock.<span class="property">time</span> = <span class="title function_">zeroPadding</span>(cd.<span class="title function_">getHours</span>(), <span class="number">2</span>) + <span class="string">&#x27;:&#x27;</span> + <span class="title function_">zeroPadding</span>(cd.<span class="title function_">getMinutes</span>(), <span class="number">2</span>) + <span class="string">&#x27;:&#x27;</span> + <span class="title function_">zeroPadding</span>(cd.<span class="title function_">getSeconds</span>(), <span class="number">2</span>);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">			clock.<span class="property">date</span> = <span class="title function_">zeroPadding</span>(cd.<span class="title function_">getFullYear</span>(), <span class="number">4</span>) + <span class="string">&#x27;-&#x27;</span> + <span class="title function_">zeroPadding</span>(cd.<span class="title function_">getMonth</span>() + <span class="number">1</span>, <span class="number">2</span>) + <span class="string">&#x27;-&#x27;</span> + <span class="title function_">zeroPadding</span>(cd.<span class="title function_">getDate</span>(), <span class="number">2</span>) + week[cd.<span class="title function_">getDay</span>()];</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">		&#125;;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">		<span class="keyword">function</span> <span class="title function_">zeroPadding</span>(<span class="params">num, digit</span>) &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">			<span class="keyword">var</span> zero = <span class="string">&#x27;&#x27;</span>;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">			<span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; digit; i++) &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">				zero += <span class="string">&#x27;0&#x27;</span>;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">			&#125;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">			<span class="keyword">return</span> (zero + num).<span class="title function_">slice</span>(-digit);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">		&#125;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">	</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h3 id="字数统计">字数统计</h3>
-<h4 id="安装">安装</h4>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="selector-tag">i</span> <span class="attr">--save</span> hexo-wordcount</span><br></pre></td></tr></table></figure>
-<h4
-id="创建yilialayout_partialpostword.ejs文件">**创建yilia/layout/_partial/post/word.ejs文件**</h4>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;div style=<span class="string">&quot;margin-top:10px;&quot;</span>&gt;</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;post-time&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;post-meta-item-icon&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">&quot;fa fa-keyboard-o&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;post-meta-item-text&quot;</span>&gt;</span>  字数统计: <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;post-count&quot;</span>&gt;</span>&lt;%= wordcount(post.content) %&gt;字<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;post-time&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="symbol">&amp;nbsp;</span> | <span class="symbol">&amp;nbsp;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;post-meta-item-icon&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">&quot;fa fa-hourglass-half&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;post-meta-item-text&quot;</span>&gt;</span>  阅读时长: <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;post-count&quot;</span>&gt;</span>&lt;%= min2read(post.content) %&gt;分<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h4 id="在主题__config.yml-中-head前添加代码">在主题__config.yml 中
-head前添加代码</h4>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;% <span class="keyword">if</span>(theme.<span class="property">word_count</span> &amp;&amp; !post.<span class="property">no_word_count</span>)&#123; %&gt;</span><br><span class="line">    &lt;%- <span class="title function_">partial</span>(<span class="string">&#x27;post/word&#x27;</span>) %&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="安装live2d模型">安装live2d模型</h3>
-<h4 id="安装模块">安装模块</h4>
-<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install <span class="comment">--save hexo-helper-live2d</span></span><br></pre></td></tr></table></figure>
-<h4 id="配置">配置</h4>
-<p>在config.yml中增加代码</p>
+
+<h3 id="字数统计"><a href="#字数统计" class="headerlink" title="字数统计"></a>字数统计</h3><h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="selector-tag">i</span> <span class="attr">--save</span> hexo-wordcount</span><br></pre></td></tr></table></figure>
+
+<h4 id="创建yilia-x2F-layout-x2F-partial-x2F-post-x2F-word-ejs文件"><a href="#创建yilia-x2F-layout-x2F-partial-x2F-post-x2F-word-ejs文件" class="headerlink" title="创建yilia&#x2F;layout&#x2F;_partial&#x2F;post&#x2F;word.ejs文件"></a><strong>创建yilia&#x2F;layout&#x2F;_partial&#x2F;post&#x2F;word.ejs文件</strong></h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;div style=<span class="string">&quot;margin-top:10px;&quot;</span>&gt;</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;post-time&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;post-meta-item-icon&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">&quot;fa fa-keyboard-o&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;post-meta-item-text&quot;</span>&gt;</span>  字数统计: <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;post-count&quot;</span>&gt;</span>&lt;%= wordcount(post.content) %&gt;字<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;post-time&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="symbol">&amp;nbsp;</span> | <span class="symbol">&amp;nbsp;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;post-meta-item-icon&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">&quot;fa fa-hourglass-half&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;post-meta-item-text&quot;</span>&gt;</span>  阅读时长: <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;post-count&quot;</span>&gt;</span>&lt;%= min2read(post.content) %&gt;分<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="在主题-config-yml-中-head前添加代码"><a href="#在主题-config-yml-中-head前添加代码" class="headerlink" title="在主题__config.yml 中 head前添加代码"></a>在主题__config.yml 中 head前添加代码</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;% <span class="keyword">if</span>(theme.<span class="property">word_count</span> &amp;&amp; !post.<span class="property">no_word_count</span>)&#123; %&gt;</span><br><span class="line">    &lt;%- <span class="title function_">partial</span>(<span class="string">&#x27;post/word&#x27;</span>) %&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装live2d模型"><a href="#安装live2d模型" class="headerlink" title="安装live2d模型"></a>安装live2d模型</h3><h4 id="安装模块"><a href="#安装模块" class="headerlink" title="安装模块"></a>安装模块</h4><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install <span class="comment">--save hexo-helper-live2d</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><p>在config.yml中增加代码</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">live2d</span>:</span><br><span class="line">  <span class="attr">enable</span>: <span class="literal">true</span></span><br><span class="line">  <span class="attr">scriptFrom</span>: local</span><br><span class="line">  <span class="attr">pluginRootPath</span>: live2dw/</span><br><span class="line">  <span class="attr">pluginJsPath</span>: lib/</span><br><span class="line">  <span class="attr">pluginModelPath</span>: assets/</span><br><span class="line">  <span class="attr">tagMode</span>: <span class="literal">false</span></span><br><span class="line">  <span class="attr">debug</span>: <span class="literal">false</span></span><br><span class="line">  <span class="attr">model</span>:</span><br><span class="line">    <span class="attr">use</span>: live2d-widget-model-xxx</span><br><span class="line">  <span class="attr">display</span>:</span><br><span class="line">    <span class="attr">position</span>: right</span><br><span class="line">    <span class="attr">width</span>: <span class="number">150</span></span><br><span class="line">    <span class="attr">height</span>: <span class="number">300</span></span><br><span class="line">  <span class="attr">mobile</span>:</span><br><span class="line">    <span class="attr">show</span>: <span class="literal">true</span></span><br><span class="line">  <span class="attr">react</span>:</span><br><span class="line">    <span class="attr">opacity</span>: <span class="number">0.7</span></span><br></pre></td></tr></table></figure>
+
 <p>然后</p>
 <figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> 模型名</span><br></pre></td></tr></table></figure>
+
 <p>最后更改</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">model</span>:<span class="attr">use</span>:模型名</span><br></pre></td></tr></table></figure>
 
@@ -1140,8 +1064,7 @@ head前添加代码</h4>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="section">2022.4.19</h1>
-<p>希望一切能有个新的开始</p>
+        <h1 id="2022-4-19"><a href="#2022-4-19" class="headerlink" title="2022.4.19"></a>2022.4.19</h1><p>希望一切能有个新的开始</p>
 
       
 
@@ -1325,15 +1248,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">learn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">后端</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">daily</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">learn</a>
               </li>
              
               <li class="article-tag-list-item">
