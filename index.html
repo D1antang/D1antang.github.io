@@ -756,23 +756,26 @@ g&gt;或四重组&lt;V, E, f,
 g&gt;，其中V是结点集合，E是边的集合，f是从V到非负实数集合的函数，g是从E到非负实数集合的函数。非赋权图称为无权图。</p>
 <h4 id="子图和补图">子图和补图</h4>
 <h5 id="子图">子图</h5>
-<p>设有图G = &lt;V, E&gt;和图G1 = &lt;V1, E1&gt;。 若V1 <span
-class="math inline">\(\subseteq\)</span> V，E1 <span
+<p>设有图G = &lt;V, E&gt;和图G1 = &lt;V1, E1&gt;。</p>
+<p>若V1 <span class="math inline">\(\subseteq\)</span> V，E1 <span
 class="math inline">\(\subseteq\)</span>
-E，则称G1是G的<strong>子图</strong>，记为G1 G 若G1 <span
-class="math inline">\(\subseteq\)</span> G，且G1 ≠ G(即V1<span
-class="math inline">\(\subset\)</span> V或E1 <span
+E，则称G1是G的<strong>子图</strong>，记为G1 <span
+class="math inline">\(\subset\)</span> G</p>
+<p>若G1 <span class="math inline">\(\subseteq\)</span> G，且G1 ≠
+G(即V1<span class="math inline">\(\subset\)</span> V或E1 <span
 class="math inline">\(\subset\)</span>
 E)，则称G1是G的<strong>真子图</strong>，记为G1<span
-class="math inline">\(\sub\)</span> G 若V1 = V，E1<span
-class="math inline">\(\subset\)</span>E，则称G1是G的<strong>生成子图</strong>
-设V2 <span class="math inline">\(\subset\)</span> V且V2 ≠ <span
+class="math inline">\(\subset\)</span> G</p>
+<p>若V1 = V，E1<span
+class="math inline">\(\subset\)</span>E，则称G1是G的<strong>生成子图</strong></p>
+<p>设V2 <span class="math inline">\(\subset\)</span> V且V2 ≠ <span
 class="math inline">\(\emptyset\)</span>，以V2为结点集，以两个端点均在V2中的边的全体为边集的G的子图，称为V2导出的G的子图，简称V2的<strong>导出子图</strong></p>
 <h5 id="完全图">完全图</h5>
 <p>设G = &lt;V,
 E&gt;为一个具有n个结点的无向简单图，如果G中任意两个结点间都有边相连，则称G为<strong>无向完全图</strong>(Undirected
 Complete Graph)，简称G为<strong>完全图</strong>(Complete
-Graph)，记为Kn。 设G = &lt;V,
+Graph)，记为Kn。</p>
+<p>设G = &lt;V,
 E&gt;为一个具有n个结点的有向简单图，如果G中任意两个结点间都有两条方向相反的有向边相连，则称G为<strong>有向完全图</strong>，也记为Kn。</p>
 <h5 id="补图">补图</h5>
 <p>设G = &lt;V, E&gt;为简单图，G’ = &lt;V, E1&gt;为完全图，则称G1 =
@@ -785,7 +788,8 @@ class="math inline">\(G^c\)</span></p>
 <figcaption aria-hidden="true">image-20220507105418158</figcaption>
 </figure>
 <h4 id="推论1">推论1</h4>
-<p>度数为奇数的结点称为奇度数结点 度数为偶数的结点称为偶度数结点</p>
+<p>度数为奇数的结点称为奇度数结点</p>
+<p>度数为偶数的结点称为偶度数结点</p>
 <p>奇度数结点数目必为偶数</p>
 <h4 id="定理二">定理二</h4>
 <p>有向图中各结点的出度之和等于各结点的入度之和，等于边数</p>
@@ -824,10 +828,10 @@ Circuit)或者初级回路、圈。</li>
 </ol>
 <h4 id="相关计算">相关计算</h4>
 <p><span class="math inline">\(A^m = (a_{ij}^{(m)})_{n*n}\)</span> <span
-class="math inline">\(a_{ij}^{(m)}\)</span>为从结点vi到结点vj长度为m的通路数目
-<span
-class="math inline">\(a_{ij}^{(m)}\)</span>为结点vi到自身的长度为m的回路数目
-<span
+class="math inline">\(a_{ij}^{(m)}\)</span>为从结点vi到结点vj长度为m的通路数目</p>
+<p><span
+class="math inline">\(a_{ij}^{(m)}\)</span>为结点vi到自身的长度为m的回路数目</p>
+<p><span
 class="math inline">\(\sum_{i=1}^{n}\sum_{j=1}^na_{ij}^{(m)}\)</span>为G中长度为m的通路（含回路）总数。</p>
 <h4 id="可达和距离">可达和距离</h4>
 <ol type="1">
@@ -847,10 +851,11 @@ class="math inline">\(v_j\)</span>存在一条长度不大于n-1的通路（鸽�
 <blockquote>
 <p>推论6.2 在一个具有n个结点的图中，如果从结点<span
 class="math inline">\(v_i\)</span>到结点<span
-class="math inline">\(v_j\)</span>（vi≠vj）存在一条通路，则从vi到vj存在一条长度不大于n-1的基本通路。
-定理6.5
+class="math inline">\(v_j\)</span>（vi≠vj）存在一条通路，则从vi到vj存在一条长度不大于n-1的基本通路。</p>
+<p>定理6.5
 在一个具有n个结点的图中，如果存在经过结点vi回路，则存在一条经过<span
-class="math inline">\(v_i\)</span>的长度不大于n的回路。 推论6.3
+class="math inline">\(v_i\)</span>的长度不大于n的回路。</p>
+<p>推论6.3
 在一个具有n个结点的图中，如果存在经过结点vi回路，则存在一条经过<span
 class="math inline">\(v_i\)</span>的长度不大于n的基本回路。</p>
 </blockquote>
@@ -1846,11 +1851,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">web</a>
+                <a href="javascript:void(0)" class="js-tag color5">code</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">code</a>
+                <a href="javascript:void(0)" class="js-tag color4">web</a>
               </li>
              
               <li class="article-tag-list-item">
