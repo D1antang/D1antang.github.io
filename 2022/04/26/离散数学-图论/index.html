@@ -8,20 +8,20 @@
   <link rel="dns-prefetch" href="http://haibarazryblog.xyz">
   <title>离散数学-图论 | D1antang 的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="离散数学-图论图的基本概念图的基本定义一个图是一个序偶 &lt; V , E &gt; 记为 G &#x3D; &lt; V , E &gt; , 其中  $$V &#x3D; { v_1 , v_2 , v_3 , …,v_n } 是有限非空集合 , v_i 称为节点,简称 点 , V称为节点集$$  $$E &#x3D; { e_1 , e_2 , e_3 , …,e_n } 是有限集合 ,">
+  <meta name="description" content="离散数学-图论 图的基本概念 图的基本定义 一个图是一个序偶 &lt; V , E &gt; 记为 G &#x3D; &lt; V , E &gt; , 其中  \[ V &#x3D; \{ v_1 , v_2 , v_3 , ...,v_n \} 是有限非空集合 , v_i 称为节点,简称 点 , V称为节点集 \] \[ E &#x3D; \{ e_1 , e_2 , e_3 , ...,e_n \}">
 <meta property="og:type" content="article">
 <meta property="og:title" content="离散数学-图论">
 <meta property="og:url" content="http://haibarazryblog.xyz/2022/04/26/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-%E5%9B%BE%E8%AE%BA/index.html">
 <meta property="og:site_name" content="D1antang 的博客">
-<meta property="og:description" content="离散数学-图论图的基本概念图的基本定义一个图是一个序偶 &lt; V , E &gt; 记为 G &#x3D; &lt; V , E &gt; , 其中  $$V &#x3D; { v_1 , v_2 , v_3 , …,v_n } 是有限非空集合 , v_i 称为节点,简称 点 , V称为节点集$$  $$E &#x3D; { e_1 , e_2 , e_3 , …,e_n } 是有限集合 ,">
+<meta property="og:description" content="离散数学-图论 图的基本概念 图的基本定义 一个图是一个序偶 &lt; V , E &gt; 记为 G &#x3D; &lt; V , E &gt; , 其中  \[ V &#x3D; \{ v_1 , v_2 , v_3 , ...,v_n \} 是有限非空集合 , v_i 称为节点,简称 点 , V称为节点集 \] \[ E &#x3D; \{ e_1 , e_2 , e_3 , ...,e_n \}">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://haibarazryblog.xyz/%E6%8F%A1%E6%89%8B%E5%AE%9A%E7%90%86-%E5%85%AC%E5%BC%8F.png">
+<meta property="og:image" content="http://haibarazryblog.xyz/2022/04/26/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-%E5%9B%BE%E8%AE%BA/握手定理-公式.png">
 <meta property="article:published_time" content="2022-04-26T02:19:25.000Z">
-<meta property="article:modified_time" content="2022-05-07T03:36:25.150Z">
+<meta property="article:modified_time" content="2022-05-07T03:38:31.711Z">
 <meta property="article:author" content="D1antang">
 <meta property="article:tag" content="learn">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://haibarazryblog.xyz/%E6%8F%A1%E6%89%8B%E5%AE%9A%E7%90%86-%E5%85%AC%E5%BC%8F.png">
+<meta name="twitter:image" content="http://haibarazryblog.xyz/2022/04/26/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-%E5%9B%BE%E8%AE%BA/握手定理-公式.png">
   
     <link rel="alternative" href="/atom.xml" title="D1antang 的博客" type="application/atom+xml">
   
@@ -273,28 +273,51 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="离散数学-图论"><a href="#离散数学-图论" class="headerlink" title="离散数学-图论"></a>离散数学-图论</h1><h2 id="图的基本概念"><a href="#图的基本概念" class="headerlink" title="图的基本概念"></a>图的基本概念</h2><h4 id="图的基本定义"><a href="#图的基本定义" class="headerlink" title="图的基本定义"></a>图的基本定义</h4><p>一个<strong>图</strong>是一个序偶 &lt; V , E &gt; 记为 G &#x3D; &lt; V , E &gt; , 其中</p>
-<ol>
-<li><p>$$<br>V &#x3D; { v_1 , v_2 , v_3 , …,v_n } 是有限非空集合 , v_i 称为节点,简称 点 , V称为节点集<br>$$</p>
-</li>
-<li><p>$$<br>E &#x3D; { e_1 , e_2 , e_3 , …,e_n } 是有限集合 , e_i 都有V中的节点与之对应,称为边<br>$$</p>
-</li>
+        <h1 id="离散数学-图论">离散数学-图论</h1>
+<h2 id="图的基本概念">图的基本概念</h2>
+<h4 id="图的基本定义">图的基本定义</h4>
+<p>一个<strong>图</strong>是一个序偶 &lt; V , E &gt; 记为 G = &lt; V , E
+&gt; , 其中</p>
+<ol type="1">
+<li><p><span class="math display">\[
+V = \{ v_1 , v_2 , v_3 , ...,v_n \} 是有限非空集合 , v_i 称为节点,简称
+点 , V称为节点集
+\]</span></p></li>
+<li><p><span class="math display">\[
+E = \{ e_1 , e_2 , e_3 , ...,e_n \} 是有限集合 , e_i
+都有V中的节点与之对应,称为边
+\]</span></p></li>
 <li><p>存在有向边和无向边</p>
 <p>和无序节点对相对应的边用 ( u , v ) 表示</p>
-<p>和有序节点对对应的边用 &lt; u , v &gt; 表示</p>
-</li>
+<p>和有序节点对对应的边用 &lt; u , v &gt; 表示</p></li>
 </ol>
-<h4 id="图的表示"><a href="#图的表示" class="headerlink" title="图的表示"></a>图的表示</h4><h5 id="图的图形表示"><a href="#图的图形表示" class="headerlink" title="图的图形表示"></a>图的图形表示</h5><p>用圆圈表示节点</p>
+<h4 id="图的表示">图的表示</h4>
+<h5 id="图的图形表示">图的图形表示</h5>
+<p>用圆圈表示节点</p>
 <p>用箭头表示有向边 , 用线段表示无向边</p>
-<h5 id="图的邻接矩阵表示"><a href="#图的邻接矩阵表示" class="headerlink" title="图的邻接矩阵表示"></a>图的邻接矩阵表示</h5><p>$$<br>设图G&#x3D;&lt;V,E&gt;,其中V &#x3D; { v_1 , v_2 , v_3 , …,v_n },则矩阵<br>\ a_{ij}&#x3D; 1 (&lt;v_i,v_j&gt;\in E \space or \space (v_i,v_j) \in E )<br>\ a_{ij}&#x3D; 0 (&lt;v_i,v_j&gt;\notin E \space and \space (v_i,v_j) \notin E )<br>$$</p>
-<h4 id="图的操作"><a href="#图的操作" class="headerlink" title="图的操作"></a>图的操作</h4><ol>
-<li>设e∈E，用G-e表示从G中去掉边e得到的图，称为删除边e。又设E’$\subset$E，用G-E’表示从G中删除E’中所有边得到的图，称为删除。</li>
-<li>设v∈V，用G-v表示从G中去掉结点v及v关联的所有边得到的图，称为删除结点v。又设V’$\sub$V，用G-V’ 表示从G中删除V’中所有结点及关联的所有边得到的图，称为删除V’。</li>
-<li>设e &#x3D; (u, v)∈E，用G\e表示从G中删除e，将e的两个端点u, v用一个新的结点w代替，使w关联除e外的u和v关联的一切边，称为边e的收缩。一个图G可以收缩为图H，是指H可以从G经过若干次边的收缩而得到。</li>
-<li>设u, v∈V(u, v可能相邻，也可能不相邻)，用G∪(u, v)表示在u, v之间加一条边(u, v)，称为加新边。</li>
+<h5 id="图的邻接矩阵表示">图的邻接矩阵表示</h5>
+<p><span class="math display">\[
+设图G=&lt;V,E&gt;,其中V = \{ v_1 , v_2 , v_3 , ...,v_n \},则矩阵
+\\ a_{ij}= 1 (&lt;v_i,v_j&gt;\in E \space or \space (v_i,v_j) \in E )
+\\ a_{ij}= 0 (&lt;v_i,v_j&gt;\notin E \space and \space (v_i,v_j) \notin
+E )
+\]</span></p>
+<h4 id="图的操作">图的操作</h4>
+<ol type="1">
+<li>设e∈E，用G-e表示从G中去掉边e得到的图，称为删除边e。又设E'<span
+class="math inline">\(\subset\)</span>E，用G-E'表示从G中删除E'中所有边得到的图，称为删除。</li>
+<li>设v∈V，用G-v表示从G中去掉结点v及v关联的所有边得到的图，称为删除结点v。又设V'<span
+class="math inline">\(\sub\)</span>V，用G-V'
+表示从G中删除V'中所有结点及关联的所有边得到的图，称为删除V'。</li>
+<li>设e = (u, v)∈E，用G，将e的两个端点u,
+v用一个新的结点w代替，使w关联除e外的u和v关联的一切边，称为边e的收缩。一个图G可以收缩为图H，是指H可以从G经过若干次边的收缩而得到。</li>
+<li>设u, v∈V(u, v可能相邻，也可能不相邻)，用G∪(u, v)表示在u,
+v之间加一条边(u, v)，称为加新边。</li>
 </ol>
-<h4 id="图的一些概念"><a href="#图的一些概念" class="headerlink" title="图的一些概念"></a>图的一些概念</h4><ol>
-<li>若两个结点vi和vj是边e的端点，则称vi与vj互为邻接点(Adjacent Point)，否则vi与vj称为不邻接的</li>
+<h4 id="图的一些概念">图的一些概念</h4>
+<ol type="1">
+<li>若两个结点vi和vj是边e的端点，则称vi与vj互为邻接点(Adjacent
+Point)，否则vi与vj称为不邻接的</li>
 <li>具有公共结点的两条边称为邻接边(Adjacent Edge)</li>
 <li>两个端点相同的边称为环(Ring)或自回路(Self-Loop)</li>
 <li>图中不与任何结点相邻接的结点称为孤立结点(Isolated Point)</li>
@@ -302,47 +325,134 @@
 <li>仅含一个结点的零图称为平凡图(Trivial Graph)</li>
 <li>含有n个结点，m条边的图，称为(n, m)图</li>
 </ol>
-<h4 id="图的分类"><a href="#图的分类" class="headerlink" title="图的分类"></a>图的分类</h4><h5 id="方向"><a href="#方向" class="headerlink" title="方向"></a>方向</h5><ol>
+<h4 id="图的分类">图的分类</h4>
+<h5 id="方向">方向</h5>
+<ol type="1">
 <li>每条边都是无向边的图称为无向图</li>
 <li>每条边都是有向边的图称为有向图</li>
 <li>有些边是无向边，而另一些边是有向边的图称为混合图</li>
 </ol>
-<h5 id="平行边"><a href="#平行边" class="headerlink" title="平行边"></a>平行边</h5><ol>
-<li>在有向图中，两结点间(包括结点自身间)若有同始点和同终点的几条边，则这几条边称为平行边(Parallel Edge)；<br>在无向图中，两结点间(包括结点自身间)若有几条边，则这几条边称为平行边。</li>
-<li>两结点a、b间相互平行的边的条数称为边(a, b)或&lt;a, b&gt;的重数(Repeated Number)。</li>
-<li>含有平行边的图称为<strong>多重图</strong>(Multigraph)<br>非多重图称为<strong>线图</strong>(Line Graph)；<br>无环的线图称为<strong>简单图</strong>(Simple Graph)。</li>
+<h5 id="平行边">平行边</h5>
+<ol type="1">
+<li>在有向图中，两结点间(包括结点自身间)若有同始点和同终点的几条边，则这几条边称为平行边(Parallel
+Edge)；
+在无向图中，两结点间(包括结点自身间)若有几条边，则这几条边称为平行边。</li>
+<li>两结点a、b间相互平行的边的条数称为边(a, b)或&lt;a,
+b&gt;的重数(Repeated Number)。</li>
+<li>含有平行边的图称为<strong>多重图</strong>(Multigraph)
+非多重图称为<strong>线图</strong>(Line Graph)；
+无环的线图称为<strong>简单图</strong>(Simple Graph)。</li>
 </ol>
-<h5 id="权"><a href="#权" class="headerlink" title="权"></a>权</h5><p><strong>赋权图</strong>(Weight Graph)G是一个三重组&lt;V, E, g&gt;或四重组&lt;V, E, f, g&gt;，其中V是结点集合，E是边的集合，f是从V到非负实数集合的函数，g是从E到非负实数集合的函数。非赋权图称为无权图。</p>
-<h4 id="子图和补图"><a href="#子图和补图" class="headerlink" title="子图和补图"></a>子图和补图</h4><h5 id="子图"><a href="#子图" class="headerlink" title="子图"></a>子图</h5><p>设有图G &#x3D; &lt;V, E&gt;和图G1 &#x3D; &lt;V1, E1&gt;。<br>若V1 $\subseteq$ V，E1 $\subseteq$   E，则称G1是G的<strong>子图</strong>，记为G1    G<br>若G1 $\subseteq$ G，且G1 ≠ G(即V1$\sub$ V或E1  $\sub$   E)，则称G1是G的<strong>真子图</strong>，记为G1$\sub$ G<br>若V1 &#x3D; V，E1$\sub$E，则称G1是G的<strong>生成子图</strong><br>设V2 $\sub$ V且V2 ≠ $\empty$，以V2为结点集，以两个端点均在V2中的边的全体为边集的G的子图，称为V2导出的G的子图，简称V2的<strong>导出子图</strong></p>
-<h5 id="完全图"><a href="#完全图" class="headerlink" title="完全图"></a>完全图</h5><p>设G &#x3D; &lt;V, E&gt;为一个具有n个结点的无向简单图，如果G中任意两个结点间都有边相连，则称G为<strong>无向完全图</strong>(Undirected Complete Graph)，简称G为<strong>完全图</strong>(Complete Graph)，记为Kn。<br>设G &#x3D; &lt;V, E&gt;为一个具有n个结点的有向简单图，如果G中任意两个结点间都有两条方向相反的有向边相连，则称G为<strong>有向完全图</strong>，也记为Kn。</p>
-<h5 id="补图"><a href="#补图" class="headerlink" title="补图"></a>补图</h5><p>设G &#x3D; &lt;V, E&gt;为简单图，G’ &#x3D; &lt;V, E1&gt;为完全图，则称G1 &#x3D; &lt;V, E1-E&gt;为G的补图。记为$G^c$</p>
-<h3 id="握手定理"><a href="#握手定理" class="headerlink" title="握手定理"></a>握手定理</h3><p>图中结点度数的总和等于边数的二倍</p>
-<p> <img src="/%E6%8F%A1%E6%89%8B%E5%AE%9A%E7%90%86-%E5%85%AC%E5%BC%8F.png" alt="image-20220507105418158"></p>
-<h4 id="推论1"><a href="#推论1" class="headerlink" title="推论1"></a>推论1</h4><p>度数为奇数的结点称为奇度数结点<br>度数为偶数的结点称为偶度数结点</p>
+<h5 id="权">权</h5>
+<p><strong>赋权图</strong>(Weight Graph)G是一个三重组&lt;V, E,
+g&gt;或四重组&lt;V, E, f,
+g&gt;，其中V是结点集合，E是边的集合，f是从V到非负实数集合的函数，g是从E到非负实数集合的函数。非赋权图称为无权图。</p>
+<h4 id="子图和补图">子图和补图</h4>
+<h5 id="子图">子图</h5>
+<p>设有图G = &lt;V, E&gt;和图G1 = &lt;V1, E1&gt;。 若V1 <span
+class="math inline">\(\subseteq\)</span> V，E1 <span
+class="math inline">\(\subseteq\)</span>
+E，则称G1是G的<strong>子图</strong>，记为G1 G 若G1 <span
+class="math inline">\(\subseteq\)</span> G，且G1 ≠ G(即V1<span
+class="math inline">\(\subset\)</span> V或E1 <span
+class="math inline">\(\subset\)</span>
+E)，则称G1是G的<strong>真子图</strong>，记为G1<span
+class="math inline">\(\sub\)</span> G 若V1 = V，E1<span
+class="math inline">\(\subset\)</span>E，则称G1是G的<strong>生成子图</strong>
+设V2 <span class="math inline">\(\subset\)</span> V且V2 ≠ <span
+class="math inline">\(\emptyset\)</span>，以V2为结点集，以两个端点均在V2中的边的全体为边集的G的子图，称为V2导出的G的子图，简称V2的<strong>导出子图</strong></p>
+<h5 id="完全图">完全图</h5>
+<p>设G = &lt;V,
+E&gt;为一个具有n个结点的无向简单图，如果G中任意两个结点间都有边相连，则称G为<strong>无向完全图</strong>(Undirected
+Complete Graph)，简称G为<strong>完全图</strong>(Complete
+Graph)，记为Kn。 设G = &lt;V,
+E&gt;为一个具有n个结点的有向简单图，如果G中任意两个结点间都有两条方向相反的有向边相连，则称G为<strong>有向完全图</strong>，也记为Kn。</p>
+<h5 id="补图">补图</h5>
+<p>设G = &lt;V, E&gt;为简单图，G’ = &lt;V, E1&gt;为完全图，则称G1 =
+&lt;V, E1-E&gt;为G的补图。记为<span
+class="math inline">\(G^c\)</span></p>
+<h3 id="握手定理">握手定理</h3>
+<p>图中结点度数的总和等于边数的二倍</p>
+<figure>
+<img src="握手定理-公式.png" alt="image-20220507105418158" />
+<figcaption aria-hidden="true">image-20220507105418158</figcaption>
+</figure>
+<h4 id="推论1">推论1</h4>
+<p>度数为奇数的结点称为奇度数结点 度数为偶数的结点称为偶度数结点</p>
 <p>奇度数结点数目必为偶数</p>
-<h4 id="定理二"><a href="#定理二" class="headerlink" title="定理二"></a>定理二</h4><p>有向图中各结点的出度之和等于各结点的入度之和，等于边数</p>
-<h4 id="度数序列"><a href="#度数序列" class="headerlink" title="度数序列"></a>度数序列</h4><p>设V &#x3D; {v1, v2, …, vn}为图G的结点集，称$(deg(v_1), deg(v_2), …, deg(v_n))$为G的度数序列</p>
-<h3 id="图的同构"><a href="#图的同构" class="headerlink" title="图的同构"></a>图的同构</h3><p>设两个图G &#x3D; &lt;V, E&gt;和G’ &#x3D;  &lt;V’, E’&gt;，如果存在双射函数g：V→V’，使得对于任意的e &#x3D; (vi, vj)(或者&lt;vi, vj&gt;)∈E当且仅当e’ &#x3D; (g(vi), g(vj))(或者&lt;g(vi), g(vj)&gt;)∈E’，并且e与e’的重数相同，则称G与G’同构，记为G≌G’。    </p>
-<h4 id="必要条件"><a href="#必要条件" class="headerlink" title="必要条件"></a>必要条件</h4><p>（1）结点数目相同<br>（2）边数相同<br>（3）度数相同的结点数相同</p>
-<h3 id="通路与回路"><a href="#通路与回路" class="headerlink" title="通路与回路"></a>通路与回路</h3><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p>给定图G &#x3D; &lt;V, E&gt;中结点和边相继交错出现的序列$Γ &#x3D; v_0e_1v_1e_2v_2…e_kv_k$。</p>
-<ol>
-<li>若Γ中边ei的两端点是$v_{i-1}$和$v_i$（G是有向图时要求vi-1与vi分别是ei的始点和终点），i &#x3D; 1, 2, …, k，则称Γ为结点v0到结点vk的通路(Entry)。</li>
-<li>$v_0$和$v_k$分别称为此通路的始点和终点，统称为通路的端点。 </li>
+<h4 id="定理二">定理二</h4>
+<p>有向图中各结点的出度之和等于各结点的入度之和，等于边数</p>
+<h4 id="度数序列">度数序列</h4>
+<p>设V = {v1, v2, …, vn}为图G的结点集，称<span
+class="math inline">\((deg(v_1), deg(v_2), …,
+deg(v_n))\)</span>为G的度数序列</p>
+<h3 id="图的同构">图的同构</h3>
+<p>设两个图G = &lt;V, E&gt;和G’ = &lt;V’,
+E’&gt;，如果存在双射函数g：V→V’，使得对于任意的e = (vi, vj)(或者&lt;vi,
+vj&gt;)∈E当且仅当e’ = (g(vi), g(vj))(或者&lt;g(vi),
+g(vj)&gt;)∈E’，并且e与e’的重数相同，则称G与G’同构，记为G≌G’。</p>
+<h4 id="必要条件">必要条件</h4>
+<p>（1）结点数目相同 （2）边数相同 （3）度数相同的结点数相同</p>
+<h3 id="通路与回路">通路与回路</h3>
+<h4 id="定义">定义</h4>
+<p>给定图G = &lt;V, E&gt;中结点和边相继交错出现的序列<span
+class="math inline">\(Γ = v_0e_1v_1e_2v_2…e_kv_k\)</span>。</p>
+<ol type="1">
+<li>若Γ中边ei的两端点是<span
+class="math inline">\(v_{i-1}\)</span>和<span
+class="math inline">\(v_i\)</span>（G是有向图时要求vi-1与vi分别是ei的始点和终点），i
+= 1, 2, …, k，则称Γ为结点v0到结点vk的通路(Entry)。</li>
+<li><span class="math inline">\(v_0\)</span>和<span
+class="math inline">\(v_k\)</span>分别称为此通路的始点和终点，统称为通路的端点。</li>
 <li>通路中边的数目k称为此通路的长度。</li>
-<li>当v0 &#x3D; vn时，此通路称为回路(Circuit)。                                                                   </li>
-<li>若通路中的所有边互不相同，则称此通路为简单通路(Simple Entry)或一条迹；若回路中的所有边互不相同，则称此回路为简单回路(Simple Circuit)或一条闭迹。</li>
-<li>若通路中的所有结点互不相同（从而所有边互不相同），则称此通路为基本通路(Basic Entry)或者初级通路、路径；若回路中除$v_0 &#x3D; v_k$外的所有结点互不相同（从而所有边互不相同），则称此回路为基本回路(Basic Circuit)或者初级回路、圈。</li>
+<li>当v0 = vn时，此通路称为回路(Circuit)。<br />
+</li>
+<li>若通路中的所有边互不相同，则称此通路为简单通路(Simple
+Entry)或一条迹；若回路中的所有边互不相同，则称此回路为简单回路(Simple
+Circuit)或一条闭迹。</li>
+<li>若通路中的所有结点互不相同（从而所有边互不相同），则称此通路为基本通路(Basic
+Entry)或者初级通路、路径；若回路中除<span class="math inline">\(v_0 =
+v_k\)</span>外的所有结点互不相同（从而所有边互不相同），则称此回路为基本回路(Basic
+Circuit)或者初级回路、圈。</li>
 </ol>
-<h4 id="相关计算"><a href="#相关计算" class="headerlink" title="相关计算"></a>相关计算</h4><p>$A^m &#x3D; (a_{ij}^{(m)})<em>{n*n}$<br>$a</em>{ij}^{(m)}$为从结点vi到结点vj长度为m的通路数目<br>$a_{ij}^{(m)}$为结点vi到自身的长度为m的回路数目<br>$\sum_{i&#x3D;1}^{n}\sum_{j&#x3D;1}^na_{ij}^{(m)}$为G中长度为m的通路（含回路）总数。</p>
-<h4 id="可达和距离"><a href="#可达和距离" class="headerlink" title="可达和距离"></a>可达和距离</h4><ol>
-<li>如果vi到vj存在通路，则称vi到vj是可达的，否则称vi到vj不可达。<br>规定：任何结点到自己都是可达的。</li>
-<li>如果vi到vj可达，则称长度最短的通路为vi到vj的短程线；vi到vj的短程线的长度称为vi到vj的距离，记为d(vi, vj)。如果vi到vj不可达，则通常记为d(vi, vj) &#x3D; ∞。</li>
+<h4 id="相关计算">相关计算</h4>
+<p><span class="math inline">\(A^m = (a_{ij}^{(m)})_{n*n}\)</span> <span
+class="math inline">\(a_{ij}^{(m)}\)</span>为从结点vi到结点vj长度为m的通路数目
+<span
+class="math inline">\(a_{ij}^{(m)}\)</span>为结点vi到自身的长度为m的回路数目
+<span
+class="math inline">\(\sum_{i=1}^{n}\sum_{j=1}^na_{ij}^{(m)}\)</span>为G中长度为m的通路（含回路）总数。</p>
+<h4 id="可达和距离">可达和距离</h4>
+<ol type="1">
+<li>如果vi到vj存在通路，则称vi到vj是可达的，否则称vi到vj不可达。
+规定：任何结点到自己都是可达的。</li>
+<li>如果vi到vj可达，则称长度最短的通路为vi到vj的短程线；vi到vj的短程线的长度称为vi到vj的距离，记为d(vi,
+vj)。如果vi到vj不可达，则通常记为d(vi, vj) = ∞。</li>
 </ol>
-<h4 id="定理"><a href="#定理" class="headerlink" title="定理"></a>定理</h4><p>在一个具有n个结点的图中，如果从结点$v_i$到结点$v_j$（$v_i$ ≠ $v_j$）存在一条通路，则从$v_i$到$v_j$存在一条长度不大于n-1的通路（鸽笼原理推论）</p>
+<h4 id="定理">定理</h4>
+<p>在一个具有n个结点的图中，如果从结点<span
+class="math inline">\(v_i\)</span>到结点<span
+class="math inline">\(v_j\)</span>（<span
+class="math inline">\(v_i\)</span> ≠ <span
+class="math inline">\(v_j\)</span>）存在一条通路，则从<span
+class="math inline">\(v_i\)</span>到<span
+class="math inline">\(v_j\)</span>存在一条长度不大于n-1的通路（鸽笼原理推论）</p>
 <blockquote>
-<p>推论6.2  在一个具有n个结点的图中，如果从结点$v_i$到结点$v_j$（vi≠vj）存在一条通路，则从vi到vj存在一条长度不大于n-1的基本通路。<br>定理6.5  在一个具有n个结点的图中，如果存在经过结点vi回路，则存在一条经过$v_i$的长度不大于n的回路。<br>推论6.3  在一个具有n个结点的图中，如果存在经过结点vi回路，则存在一条经过$v_i$的长度不大于n的基本回路。 </p>
+<p>推论6.2 在一个具有n个结点的图中，如果从结点<span
+class="math inline">\(v_i\)</span>到结点<span
+class="math inline">\(v_j\)</span>（vi≠vj）存在一条通路，则从vi到vj存在一条长度不大于n-1的基本通路。
+定理6.5
+在一个具有n个结点的图中，如果存在经过结点vi回路，则存在一条经过<span
+class="math inline">\(v_i\)</span>的长度不大于n的回路。 推论6.3
+在一个具有n个结点的图中，如果存在经过结点vi回路，则存在一条经过<span
+class="math inline">\(v_i\)</span>的长度不大于n的基本回路。</p>
 </blockquote>
-<h4 id="可达的计算"><a href="#可达的计算" class="headerlink" title="可达的计算"></a>可达的计算</h4><p>$$<br>B&#x3D;\sum_{i&#x3D;1}^{n-1}A^{(i)}<br>\ b_{ij}&gt;0 \rightarrow 可达<br>\ b_{ij}&#x3D;0 \rightarrow 不可达<br>$$</p>
+<h4 id="可达的计算">可达的计算</h4>
+<p><span class="math display">\[
+B=\sum_{i=1}^{n-1}A^{(i)}
+\\ b_{ij}&gt;0 \rightarrow 可达
+\\ b_{ij}=0 \rightarrow 不可达
+\]</span></p>
 
       
 
@@ -597,19 +707,15 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">code</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">web</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">codeforce</a>
+                <a href="javascript:void(0)" class="js-tag color5">code</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">learn</a>
+                <a href="javascript:void(0)" class="js-tag color5">codeforce</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -618,6 +724,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">daily</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">learn</a>
               </li>
              
               <li class="article-tag-list-item">
